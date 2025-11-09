@@ -1031,7 +1031,19 @@ footer {
   }
 
   .hero-animation {
-    display: none;
+    display: block;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 2rem auto 0;
+    opacity: 0.6;
+    filter: hue-rotate(240deg) saturate(1.2) brightness(0.8);
+  }
+
+  #lottie-rocket {
+    width: 200px;
+    height: 200px;
+    opacity: 0.6;
   }
 }
 
@@ -1051,6 +1063,16 @@ footer {
   .profile-img {
     width: 180px;
     height: 180px;
+  }
+
+  .hero-animation {
+    margin: 1.5rem auto 0;
+  }
+
+  #lottie-rocket {
+    width: 150px;
+    height: 150px;
+    opacity: 0.5;
   }
 
   .skill-card,
