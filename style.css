@@ -12,12 +12,49 @@
   --gray: #64748b;
 }
 
+/* Prevent zoom on form inputs on mobile and improve touch experience */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    border-radius: 8px;
+  }
+
+  /* Ensure touch targets are at least 44px */
+  .btn,
+  .nav-menu a,
+  .contact-form input,
+  .contact-form textarea,
+  .cert-link,
+  .see-more-btn {
+    min-height: 44px;
+  }
+
+  /* Improve tap targets */
+  .skill-card,
+  .project-card,
+  .achievement-card,
+  .cert-card {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(99, 102, 241, 0.1);
+  }
+}
+
+/* Smooth scrolling optimization for mobile */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: var(--dark);
   color: var(--light);
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .navbar {
@@ -826,9 +863,78 @@ footer {
   color: var(--gray);
 }
 
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+  min-height: 44px; /* Apple touch target size */
+  justify-content: center;
+  align-items: center;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background: var(--light);
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.mobile-menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
 @media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
   .nav-menu {
-    gap: 1rem;
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 2rem 0;
+    gap: 0;
+    z-index: 1000;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-menu li {
+    margin: 1rem 0;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu a:hover {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
   }
 
   .glitch {
@@ -841,5 +947,125 @@ footer {
 
   .section-title {
     font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+
+  .hero {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+    width: 90%;
+    max-width: 280px;
+  }
+
+  .about-content,
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .projects-grid,
+  .achievements-grid,
+  .cert-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .education-timeline::before,
+  .timeline::before {
+    left: 20px;
+  }
+
+  .education-item,
+  .education-item:nth-child(even),
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 50px;
+    justify-content: flex-start;
+    align-self: flex-start;
+  }
+
+  .education-dot,
+  .education-item:nth-child(even) .education-dot,
+  .education-item:nth-child(odd) .education-dot,
+  .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot,
+  .timeline-item:nth-child(odd) .timeline-dot {
+    left: 11px;
+    right: auto;
+  }
+
+  .education-content,
+  .timeline-content {
+    width: calc(100% - 30px);
+    padding: 1rem;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-animation {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .glitch {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .profile-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .skill-card,
+  .project-card,
+  .achievement-card,
+  .cert-card {
+    padding: 1.5rem;
+  }
+
+  .contact-item {
+    font-size: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.8rem;
   }
 }
