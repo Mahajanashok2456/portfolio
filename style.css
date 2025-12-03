@@ -113,16 +113,6 @@ body {
   padding: 2rem;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-  opacity: 0.2;
-  animation: pulse 4s ease-in-out infinite;
-}
-
 @keyframes pulse {
   0%,
   100% {
@@ -136,11 +126,12 @@ body {
 .hero-content {
   text-align: center;
   z-index: 1;
+  background: none;
 }
 
 .hero-animation {
   position: absolute;
-  right: 5%;
+  left: 5%;
   bottom: 2%;
   z-index: 0;
   filter: hue-rotate(240deg) saturate(1.2) brightness(0.9);
@@ -156,7 +147,7 @@ body {
 @media (max-width: 1024px) {
   .hero-animation {
     opacity: 0.25;
-    right: 2%;
+    left: 2%;
     filter: hue-rotate(240deg) saturate(1.5) brightness(0.7);
   }
 
@@ -180,6 +171,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: inline-block;
 }
 
 .subtitle {
@@ -1089,5 +1081,121 @@ footer {
   .contact-form input,
   .contact-form textarea {
     padding: 0.8rem;
+  }
+}
+
+/* Chat Assistant Notification */
+.chat-notification {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+  padding: 1rem 1.2rem;
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  max-width: 320px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.chat-notification.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.chat-notification:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 50px rgba(99, 102, 241, 0.4);
+}
+
+.chat-notification-content {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+}
+
+.chat-notification-icon {
+  font-size: 2rem;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.chat-notification-text {
+  flex: 1;
+  color: white;
+}
+
+.chat-notification-text strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.chat-notification-text p {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.chat-notification-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  line-height: 1;
+  padding: 0;
+}
+
+.chat-notification-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 10px 50px rgba(99, 102, 241, 0.5);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .chat-notification {
+    bottom: 80px;
+    right: 15px;
+    left: 15px;
+    max-width: calc(100% - 30px);
+  }
+
+  .chat-notification-text strong {
+    font-size: 0.95rem;
+  }
+
+  .chat-notification-text p {
+    font-size: 0.85rem;
   }
 }

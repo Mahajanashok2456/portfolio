@@ -91,3 +91,48 @@ if (typeof lottie !== "undefined") {
     path: "rocket no blackground.json",
   });
 }
+
+// Chat Assistant Notification
+window.addEventListener("load", function () {
+  // Create notification element immediately
+  const notification = document.createElement("div");
+  notification.className = "chat-notification";
+  notification.innerHTML = `
+    <div class="chat-notification-content">
+      <span class="chat-notification-icon">💬</span>
+      <div class="chat-notification-text">
+        <strong>Hi there! 👋</strong>
+        <p>Need help? Ask me anything!</p>
+      </div>
+      <button class="chat-notification-close">&times;</button>
+    </div>
+  `;
+  document.body.appendChild(notification);
+
+  // Show notification with animation instantly
+  setTimeout(() => notification.classList.add("show"), 100);
+
+  // Auto hide after 8 seconds
+  setTimeout(() => {
+    notification.classList.remove("show");
+    setTimeout(() => notification.remove(), 300);
+  }, 8000);
+
+  // Close button functionality
+  notification
+    .querySelector(".chat-notification-close")
+    .addEventListener("click", () => {
+      notification.classList.remove("show");
+      setTimeout(() => notification.remove(), 300);
+    });
+
+  // Click on notification to open chat
+  notification.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("chat-notification-close")) {
+      // Try to trigger Botpress chat
+      if (window.botpressWebChat) {
+        window.botpressWebChat.sendEvent({ type: "show" });
+      }
+    }
+  });
+});
