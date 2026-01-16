@@ -10,13 +10,16 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   </head>
   <body>
+    <canvas id="gradient-canvas"></canvas>
     <nav class="navbar">
       <div class="nav-container">
-        <a href="#" class="logo">Mahajan<span>Ashok</span></a>
+        
         <ul class="nav-menu">
-          <li><a href="#home">Home</a></li>
+          <li><a href="#home" class="active-link">Home</a></li>
+          <li><a href="#clients">Clients</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -39,8 +42,18 @@
         <h1 class="glitch" data-text="Mahajan Ashok">Mahajan Ashok</h1>
         <p class="subtitle">AI Engineer & Full Stack Developer</p>
         <div class="cta-buttons">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+          <a href="#projects" class="animated-btn">
+            <div class="animated-btn-border">
+              <div class="animated-btn-light"></div>
+            </div>
+            <span>View Projects</span>
+          </a>
+          <a href="#contact" class="animated-btn">
+            <div class="animated-btn-border">
+              <div class="animated-btn-light"></div>
+            </div>
+            <span>Get in Touch</span>
+          </a>
         </div>
       </div>
       <div class="hero-animation">
@@ -205,10 +218,35 @@
       <div class="container">
         <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-image">
+           <div class="project-card">
+            <div class="project-image" style="background: url('./ai-guru-preview.png') center/cover no-repeat;">
               <div class="project-overlay">
-                <a href="#" class="project-link"
+                <a href="https://ai-guru-sage.vercel.app/" target="_blank" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i
+                ></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>AI Guru Multibot 🤖</h3>
+              <p>
+                Advanced multimodal AI assistant with self-learning, image understanding, and context-aware conversations using Gemini.
+              </p>
+              <div class="project-tags">
+                <span>FastAPI</span>
+                <span>React</span>
+                <span>Gemini Pro Vision</span>
+                <span>MongoDB Atlas</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background: url('./mitra-preview.png') center/cover no-repeat;">
+              <div class="project-overlay">
+                <a
+                  href="https://mitra-silk.vercel.app/"
+                  target="_blank"
+                  class="project-link"
                   ><i class="fas fa-external-link-alt"></i
                 ></a>
               </div>
@@ -227,8 +265,54 @@
               </div>
             </div>
           </div>
+          
+
           <div class="project-card">
-            <div class="project-image">
+            <div class="project-image" style="background: url('./store-preview.png') center/cover no-repeat;">
+              <div class="project-overlay">
+                <a href="https://inventory-manager-rflg.vercel.app/" target="_blank" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i
+                ></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Mahajan’s Store Management</h3>
+              <p>
+                Full-stack inventory system with real-time tracking, profit calcs, low-stock alerts, and analytics dashboards.
+              </p>
+              <div class="project-tags">
+                <span>Django REST</span>
+                <span>React</span>
+                <span>Material-UI</span>
+                <span>MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background: url('./expenso-preview.png') center/cover no-repeat;">
+              <div class="project-overlay">
+                <a href="https://expense-tracker-steel-mu-33.vercel.app/" target="_blank" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i
+                ></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Expenso - Expense Tracker</h3>
+              <p>
+                Privacy-first expense tracker with CRUD, analytics, and export
+                options (PDF/CSV/JSON)
+              </p>
+              <div class="project-tags">
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>Recharts</span>
+              </div>
+            </div>
+          </div>
+          
+           <div class="project-card">
+            <div class="project-image" style="background: url('./echoes-preview.png') center/cover no-repeat;">
               <div class="project-overlay">
                 <a
                   href="https://echoesofmahajan.vercel.app"
@@ -251,24 +335,74 @@
               </div>
             </div>
           </div>
+
           <div class="project-card">
-            <div class="project-image">
+            <div class="project-image" style="background: url('./galaxy-preview.png') center/cover no-repeat;">
               <div class="project-overlay">
-                <a href="#" class="project-link"
+                <a href="https://galaxy-name.vercel.app/" target="_blank" class="project-link"
                   ><i class="fas fa-external-link-alt"></i
                 ></a>
               </div>
             </div>
             <div class="project-info">
-              <h3>Enpenso - Expense Tracker</h3>
+              <h3>Galaxy Name Generator</h3>
               <p>
-                Privacy-first expense tracker with CRUD, analytics, and export
-                options (PDF/CSV/JSON)
+                Creative name generator for sci-fi and fantasy universes.
               </p>
               <div class="project-tags">
                 <span>React</span>
-                <span>TypeScript</span>
-                <span>Recharts</span>
+                <span>Frontend</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="clients" class="projects">
+      <div class="container">
+        <h2 class="section-title">Clients Covered</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image" style="background: url('./contenttora-preview.png') center/cover no-repeat;">
+              <div class="project-overlay">
+                <a href="https://www.contentoramedia.com/" target="_blank" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i
+                ></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Contenttora – Digital Marketing Agency</h3>
+              <p>
+                A high-performance, animation-rich agency website built to showcase services, capture leads, and boost SEO.
+              </p>
+              <div class="project-tags">
+                <span>React</span>
+                <span>Framer Motion</span>
+                <span>GSAP</span>
+                <span>SEO</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background: url('./relicus-preview.png') center/cover no-repeat;">
+              <div class="project-overlay">
+                <a href="https://www.relicus.in/" target="_blank" class="project-link"
+                  ><i class="fas fa-external-link-alt"></i
+                ></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>Relicus</h3>
+              <p>
+                A modern brand/product-focused website designed with a strong visual identity and performance-first architecture.
+              </p>
+              <div class="project-tags">
+                <span>React</span>
+                <span>Modern UI/UX</span>
+                <span>Responsive</span>
+                <span>SEO</span>
               </div>
             </div>
           </div>
@@ -281,7 +415,7 @@
         <h2 class="section-title">Leadership & Achievements</h2>
         <div class="achievements-grid">
           <div class="achievement-card">
-            <div class="achievement-icon"><i class="fas fa-users"></i></div>
+            <div class="achievement-icon"><i class="fas fa-diagram-project"></i></div>
             <h3>Technical Coordinator</h3>
             <p>
               Led technical coordination for major college events including
@@ -290,7 +424,7 @@
             </p>
           </div>
           <div class="achievement-card">
-            <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+            <div class="achievement-icon"><i class="fas fa-medal"></i></div>
             <h3>Hackathon Participation</h3>
             <p>
               Participated in Smart India Hackathon (SIH) 2023 & 2025 and MSME
@@ -299,7 +433,7 @@
           </div>
           <div class="achievement-card">
             <div class="achievement-icon">
-              <i class="fas fa-presentation"></i>
+              <i class="fas fa-person-chalkboard"></i>
             </div>
             <h3>Project Presentation</h3>
             <p>
@@ -316,195 +450,125 @@
         <h2 class="section-title">Certifications</h2>
         <div class="cert-grid">
           <div class="cert-card">
-            <div class="cert-icon"><i class="fas fa-robot"></i></div>
+            <div class="cert-icon"><i class="fab fa-salesforce"></i></div>
+            <h3>Salesforce Certified Agentforce Specialist</h3>
+            <p class="cert-issuer">Salesforce</p>
+            <p class="cert-date">Dec 2025</p>
+            <a href="https://www.linkedin.com/posts/mahajanashok78_salesforce-agentforce-salesforcecertified-activity-7410368977492692995-6KPW?utm_source=share&utm_medium=member_desktop&rcm=ACoAADl2HPwBf3tYXKds9T56jvCAw1iD3iu1a2U" target="_blank" class="cert-link">Verify</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon"><i class="fas fa-infinity"></i></div>
             <h3>UiPath Automation Developer</h3>
             <p class="cert-issuer">UiPath</p>
             <p class="cert-date">Oct 2025</p>
+            <a href="https://www.linkedin.com/posts/mahajanashok78_rpa-uipath-ictacademy-activity-7388171843578445824--PNo?utm_source=share&utm_medium=member_desktop&rcm=ACoAADl2HPwBf3tYXKds9T56jvCAw1iD3iu1a2U" target="_blank" class="cert-link">Verify</a>
           </div>
           <div class="cert-card">
-            <div class="cert-icon"><i class="fas fa-cloud"></i></div>
+            <div class="cert-icon"><i class="fas fa-cloud-arrow-up"></i></div>
             <h3>OCI Generative AI Professional</h3>
             <p class="cert-issuer">Oracle</p>
             <p class="cert-date">Sep 2025</p>
-            <a
-              href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=5946CF12FCCCDCC8CC20BBC11C070FB4F62CDE734DAA2C5250F23F49762743B9"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
+            <a href="#" class="cert-link">Verify</a>
           </div>
           <div class="cert-card">
-            <div class="cert-icon"><i class="fas fa-brain"></i></div>
-            <h3>Gen AI & Advanced Prompt Engineering</h3>
+            <div class="cert-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+            <h3>Gen AI & Prompt Engineering</h3>
             <p class="cert-issuer">Student Tribe</p>
             <p class="cert-date">Sep 2025</p>
           </div>
           <div class="cert-card">
-            <div class="cert-icon"><i class="fas fa-briefcase"></i></div>
+            <div class="cert-icon"><i class="fas fa-building-user"></i></div>
             <h3>AI Workplace Proficiency</h3>
             <p class="cert-issuer">Superhuman</p>
             <p class="cert-date">Sep 2025</p>
-            <a
-              href="https://education.superhuman.ai/certificates/o5mrsrkbkc"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
+            <a href="#" class="cert-link">Verify</a>
           </div>
           <div class="cert-card">
             <div class="cert-icon"><i class="fab fa-google"></i></div>
-            <h3>Build AI Apps with Gemini & Imagen</h3>
+            <h3>Build AI Apps with Gemini</h3>
             <p class="cert-issuer">Google Cloud</p>
             <p class="cert-date">Apr 2025</p>
-            <a
-              href="https://www.credly.com/badges/be8ad58c-224a-4243-a2be-ef2d435c63f2/linked_in_profile"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
+            <a href="#" class="cert-link">Verify</a>
           </div>
           <div class="cert-card">
             <div class="cert-icon"><i class="fab fa-google"></i></div>
             <h3>Prompt Design in Vertex AI</h3>
             <p class="cert-issuer">Google Cloud</p>
             <p class="cert-date">Apr 2025</p>
-            <a
-              href="https://www.credly.com/badges/8b3b731d-657f-4ed6-b5be-7be99fe31ffd/linked_in_profile"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
+            <a href="#" class="cert-link">Verify</a>
           </div>
-          <div class="cert-card">
+          <div class="cert-card hidden">
             <div class="cert-icon"><i class="fab fa-ibm"></i></div>
             <h3>Getting Started with AI</h3>
             <p class="cert-issuer">IBM</p>
             <p class="cert-date">Feb 2025</p>
-            <a
-              href="https://www.credly.com/badges/9a500c1c-c976-4afe-9c3d-d9886577160e/linked_in_profile"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
+            <a href="#" class="cert-link">Verify</a>
           </div>
-          <div class="cert-card">
-            <div class="cert-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="cert-card hidden">
+            <div class="cert-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
             <h3>Data Analysis with Python</h3>
             <p class="cert-issuer">freeCodeCamp</p>
             <p class="cert-date">May 2024</p>
-            <a
-              href="https://freecodecamp.org/certification/Mahajanashok/data-analysis-with-python-v7"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
+            <a href="#" class="cert-link">Verify</a>
           </div>
           <div class="cert-card hidden">
             <div class="cert-icon"><i class="fas fa-laptop-code"></i></div>
-            <h3>IBM SkillsBuild Career Essentials</h3>
+            <h3>IBM SkillsBuild Essentials</h3>
             <p class="cert-issuer">IBM</p>
             <p class="cert-date">Oct 2025</p>
-            <a
-              href="https://skills.yourlearning.ibm.com/certificate/share/0a250c60c6ewogICJvYmplY3RJZCIgOiAiUExBTi1BNjQ2MEI2MjNBRTciLAogICJsZWFybmVyQ05VTSIgOiAiNTg1NzkzNVJFRyIsCiAgIm9iamVjdFR5cGUiIDogIkFDVElWSVRZIgp93a8283d022-10"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
           </div>
           <div class="cert-card hidden">
             <div class="cert-icon"><i class="fas fa-briefcase"></i></div>
             <h3>Career Explorer Job Simulation</h3>
             <p class="cert-issuer">Forage</p>
-            <p class="cert-date">Jul 2025</p>
-            <a
-              href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/rm6of58ywoJoNuiBt/RgsPxALmNvJtomsKN_rm6of58ywoJoNuiBt_gY6ztmygS9HFmBeLJ_1753547181518_completion_certificate.pdf"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
+            <p class="cert-date">Aug 2025</p>
           </div>
           <div class="cert-card hidden">
             <div class="cert-icon"><i class="fas fa-project-diagram"></i></div>
             <h3>N8N Crash Course</h3>
             <p class="cert-issuer">LetsUpgrade</p>
             <p class="cert-date">Jul 2025</p>
-            <a
-              href="https://verify.letsupgrade.in/certificate/LUENCCJUL12559"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
           </div>
           <div class="cert-card hidden">
             <div class="cert-icon"><i class="fas fa-chart-bar"></i></div>
             <h3>Tata GenAI Data Analytics</h3>
             <p class="cert-issuer">Forage</p>
-            <p class="cert-date">Jul 2025</p>
-            <a
-              href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_gY6ztmygS9HFmBeLJ_1753539205897_completion_certificate.pdf"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
+            <p class="cert-date">Jun 2025</p>
           </div>
           <div class="cert-card hidden">
             <div class="cert-icon"><i class="fas fa-palette"></i></div>
             <h3>Canva for Work</h3>
             <p class="cert-issuer">Canva</p>
             <p class="cert-date">May 2025</p>
-            <a
-              href="https://canva.com/designschool/certification-award/9c20ae3c-876e-4cfb-90c2-cd4d6ae3f5a4"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
           </div>
           <div class="cert-card hidden">
             <div class="cert-icon"><i class="fas fa-code"></i></div>
             <h3>CSS (Basics)</h3>
             <p class="cert-issuer">HackerRank</p>
-            <p class="cert-date">Apr 2025</p>
-            <a
-              href="https://www.hackerrank.com/certificates/iframe/0b7be8b06d37"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
+            <p class="cert-date">May 2025</p>
           </div>
           <div class="cert-card hidden">
             <div class="cert-icon"><i class="fas fa-microchip"></i></div>
             <h3>GenAI 101 with Pieces</h3>
             <p class="cert-issuer">Pieces</p>
-            <p class="cert-date">Jan 2025</p>
-            <a
-              href="https://api.badgr.io/public/assertions/p9NVvp2QRPa3bpqoHzBBiA?identity__email=ashokroshan78%40gmail.com"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
+            <p class="cert-date">May 2025</p>
           </div>
           <div class="cert-card hidden">
             <div class="cert-icon"><i class="fas fa-database"></i></div>
             <h3>Data Analysis with Python</h3>
             <p class="cert-issuer">LetsUpgrade</p>
-            <p class="cert-date">Dec 2023</p>
-            <a
-              href="https://www.letsupgrade.in/verify"
-              target="_blank"
-              class="cert-link"
-              >Verify</a
-            >
+            <p class="cert-date">May 2025</p>
           </div>
           <div class="cert-card hidden">
             <div class="cert-icon"><i class="fas fa-chart-pie"></i></div>
             <h3>Accenture Data Analytics</h3>
             <p class="cert-issuer">Forage</p>
-            <p class="cert-date">2024</p>
+            <p class="cert-date">Feb 2025</p>
           </div>
         </div>
         <div class="cert-footer">
-          <button class="see-more-btn btn btn-primary">
-            See More Certifications
+          <button class="see-more-btn">
+            See More Certifications <i class="fas fa-chevron-down"></i>
           </button>
         </div>
       </div>
@@ -534,7 +598,7 @@
             <div class="contact-item">
               <i class="fab fa-github"></i>
               <a
-                href="https://github.com/mahajanashok"
+                href="https://github.com/Mahajanashok2456"
                 target="_blank"
                 style="color: inherit; text-decoration: none"
                 >Github</a
@@ -543,7 +607,7 @@
             <div class="contact-item">
               <i class="fab fa-linkedin"></i>
               <a
-                href="https://linkedin.com/in/mahajan-ashok"
+                href="https://www.linkedin.com/in/mahajanashok78/"
                 target="_blank"
                 style="color: inherit; text-decoration: none"
                 >Linkedin</a
@@ -554,16 +618,23 @@
             <input type="text" placeholder="Your Name" required />
             <input type="email" placeholder="Your Email" required />
             <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <button type="submit" class="animated-btn" style="border: none; cursor: pointer;">
+              <div class="animated-btn-border">
+                <div class="animated-btn-light"></div>
+              </div>
+              <span>Send Message</span>
+            </button>
           </form>
         </div>
       </div>
     </section>
 
     <footer>
-      <p>&copy; 2024 Mahajan Ashok. AI Engineer & Full Stack Developer.</p>
+      <p>&copy; 2025 Mahajan Ashok. All rights reserved.</p>
     </footer>
 
+    <!-- Scripts -->
+    <!-- Removed GSAP since reverting to grid -->
     <script src="./script.js"></script>
     <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
     <script
