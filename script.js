@@ -123,7 +123,7 @@ document.querySelector(".see-more-btn")?.addEventListener("click", function () {
 });
 
 // Chat Notification
-window.addEventListener("load", function () {
+document.addEventListener("DOMContentLoaded", function () {
   const notification = document.createElement("div");
   notification.className = "chat-notification";
   notification.innerHTML = `
@@ -162,7 +162,7 @@ window.addEventListener("load", function () {
 });
 
 /* Shader Gradient Background using Three.js */
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('gradient-canvas');
   if (!canvas || typeof THREE === 'undefined') return;
 
