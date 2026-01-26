@@ -954,6 +954,17 @@ section {
   color: var(--gray);
 }
 
+.reveal-email,
+.reveal-phone {
+  transition: all 0.3s;
+}
+
+.reveal-email:hover,
+.reveal-phone:hover {
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(214, 188, 250, 0.3);
+}
+
 .contact-item i {
   width: 40px;
   height: 40px;

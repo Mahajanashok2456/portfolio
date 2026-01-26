@@ -26,6 +26,33 @@ if (mobileMenuToggle && navMenu) {
   });
 }
 
+// Contact Info Reveal Logic
+document.addEventListener("DOMContentLoaded", () => {
+  const revealEmail = document.querySelector(".reveal-email");
+  const revealPhone = document.querySelector(".reveal-phone");
+
+  if (revealEmail) {
+    revealEmail.addEventListener("click", function (e) {
+      e.preventDefault();
+      const encodedEmail = this.getAttribute("data-email");
+      const email = atob(encodedEmail);
+      this.textContent = email;
+      this.href = "mailto:" + email;
+      this.classList.remove("reveal-email"); // Remove class to prevent re-triggering if desired, though harmless
+      this.style.cursor = "default";
+    });
+  }
+
+  if (revealPhone) {
+    revealPhone.addEventListener("click", function () {
+      const encodedPhone = this.getAttribute("data-phone");
+      const phone = atob(encodedPhone);
+      this.textContent = phone;
+      this.style.cursor = "default";
+    });
+  }
+});
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -66,7 +93,7 @@ document.querySelector(".contact-form")?.addEventListener("submit", (e) => {
   const email = e.target.querySelector('input[type="email"]').value;
   const message = e.target.querySelector('textarea').value;
   
-  const whatsappNumber = "916305447461";
+  const whatsappNumber = atob("OTE2MzA1NDQ3NDYx"); // Decodes to 916305447461
   
   // Use proper URL encoding
   const formattedText = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
