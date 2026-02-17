@@ -1,20 +1,22 @@
 import Navbar from '@/components/Navbar';
-import Contact from '@/components/Contact';
+import Experience from '@/components/Experience';
+import ValidatedExpertise from '@/components/ValidatedExpertise';
 import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
 
 export const metadata = {
-    title: "Contact | Mahajan Ashok - Hire AI Engineer & Full Stack Developer",
-    description: "Get in touch with Mahajan Ashok for AI development, Full Stack web apps, or freelance consulting. Available for contract and freelance projects worldwide.",
+    title: "Experience & Certifications | Mahajan Ashok",
+    description: "Explore Mahajan Ashok's career milestones, work experience in AI Engineering and Full Stack Development, and validated certifications.",
 };
 
-export default function ContactPage() {
+export default function ExperiencePage() {
     return (
         <main className="min-h-screen selection:bg-white selection:text-black bg-black overflow-x-hidden">
             <Navbar />
 
             <div className="relative z-10 pt-32 md:pt-48">
-                <Contact />
+                <Experience />
+                <ValidatedExpertise />
             </div>
 
             <Footer />

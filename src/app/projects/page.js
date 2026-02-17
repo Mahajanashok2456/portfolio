@@ -1,9 +1,7 @@
 import Navbar from '@/components/Navbar';
-import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
-import Experience from '@/components/Experience';
-import Achievements from '@/components/Achievements';
-import Certifications from '@/components/Certifications';
+import ProjectGallery from '@/components/ProjectGallery';
+import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
 
@@ -17,12 +15,10 @@ export default function ProjectsPage() {
         <main className="min-h-screen selection:bg-white selection:text-black bg-black overflow-x-hidden">
             <Navbar />
 
-            <div className="relative z-10 pt-24">
+            <div className="relative z-10 pt-32 md:pt-48">
                 <Skills />
-                <Experience />
-                <Projects />
-                <Achievements />
-                <Certifications />
+                <ProjectGallery />
+                <Testimonials />
             </div>
 
             <Footer />

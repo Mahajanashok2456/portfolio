@@ -2,46 +2,49 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+import RotatingText from './RotatingText';
+
+const Lanyard = dynamic(() => import('./Lanyard'), { ssr: false });
 
 const FloatingIcons = () => {
   const icons = [
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", width: 50, height: 50, delay: 0, duration: 15, x: "10%", y: "20%" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", width: 60, height: 60, delay: 2, duration: 18, x: "80%", y: "15%" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", width: 45, height: 45, delay: 4, duration: 20, x: "20%", y: "70%" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", width: 55, height: 55, delay: 1, duration: 17, x: "85%", y: "60%" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", width: 50, height: 50, delay: 3, duration: 16, x: "50%", y: "10%", className: "invert" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", width: 55, height: 55, delay: 5, duration: 19, x: "15%", y: "40%" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg", width: 60, height: 60, delay: 2, duration: 22, x: "75%", y: "80%" },
-    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", width: 50, height: 50, delay: 6, duration: 25, x: "40%", y: "90%" }
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", size: 28, delay: 0, duration: 18, x: "3%", y: "15%" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", size: 32, delay: 2, duration: 22, x: "92%", y: "12%" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", size: 24, delay: 4, duration: 20, x: "5%", y: "75%" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", size: 26, delay: 1, duration: 19, x: "93%", y: "65%" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", size: 24, delay: 3, duration: 21, x: "88%", y: "88%", className: "invert" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", size: 28, delay: 5, duration: 24, x: "4%", y: "45%" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg", size: 30, delay: 2, duration: 26, x: "90%", y: "40%" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", size: 26, delay: 6, duration: 28, x: "8%", y: "90%" },
   ];
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none hidden lg:block">
       {icons.map((icon, index) => (
         <motion.div
           key={index}
-          className={`absolute opacity-20 hover:opacity-100 transition-opacity duration-300 ${icon.className || ''}`}
+          className={`absolute opacity-[0.12] ${icon.className || ''}`}
           style={{ left: icon.x, top: icon.y }}
           animate={{
-            y: [0, -40, 20, -60, 0],
-            x: [0, 50, -30, 20, 0],
-            rotate: [0, 20, -10, 15, 0],
-            scale: [1, 1.1, 0.9, 1.1, 1]
+            y: [0, -25, 10, -35, 0],
+            x: [0, 15, -10, 8, 0],
+            rotate: [0, 8, -5, 6, 0],
           }}
           transition={{
-            duration: icon.duration * 1.5,
+            duration: icon.duration,
             repeat: Infinity,
             repeatType: "reverse",
             ease: "easeInOut",
             delay: icon.delay,
           }}
         >
-          <div className="relative drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+          <div className="drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]">
             <Image
               src={icon.src}
               alt="Tech Icon"
-              width={icon.width}
-              height={icon.height}
+              width={icon.size}
+              height={icon.size}
             />
           </div>
         </motion.div>
@@ -52,7 +55,7 @@ const FloatingIcons = () => {
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex flex-col lg:flex-row items-center justify-center relative overflow-hidden bg-black px-6 md:px-16 lg:px-24 pt-28 pb-12 lg:py-0">
+    <section id="home" className="min-h-screen flex flex-col lg:flex-row items-center justify-center relative overflow-hidden bg-black px-6 md:px-16 lg:px-24 pt-20 pb-12 lg:py-0">
 
       {/* Dynamic Floating Icons Background */}
       <FloatingIcons />
@@ -68,61 +71,63 @@ export default function Hero() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col text-center lg:text-left"
+          className="flex flex-col text-center lg:text-left overflow-hidden"
         >
+          <div className="flex justify-center lg:justify-start mb-6">
+            <RotatingText
+              texts={['PYTHON', 'REACT', 'NEXT.JS', 'FASTAPI', 'AI / ML', 'RAG', 'MONGODB', 'LLMs']}
+              mainClassName="px-4 py-2 bg-accent text-black font-black uppercase tracking-widest text-xs md:text-sm rounded-none"
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2500}
+            />
+          </div>
           <p className="text-sm md:text-2xl font-black text-white/40 uppercase tracking-[0.4em] mb-4">
             Hi, I&apos;m Mahajan
           </p>
-          <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-6 uppercase leading-none lg:leading-[0.9]">
+          <h1 className="text-3xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-6 uppercase leading-none lg:leading-[0.9]">
             AI ENGINEER & <br />
             <span className="text-transparent border-t-0 bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/50">FULL STACK DEV</span>
           </h1>
-          <p className="text-base md:text-xl text-white/50 max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed font-medium">
-            Innovative AI Engineer and Full Stack Developer specializing in FastAPI, React, and MongoDB. Experienced in designing RAG pipelines, integrating Generative Model APIs, and building scalable, human-centric AI systems.
+          <p className="text-base md:text-xl text-white/70 max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed font-medium">
+            I build AI-powered products that ship fast and scale — from RAG pipelines to full-stack web apps.
           </p>
+
+          <div className="flex items-center gap-4 text-[0.6rem] md:text-xs font-black uppercase tracking-widest text-white/40 mb-10">
+            <span>3+ Years Experience</span>
+            <span className="text-accent">•</span>
+            <span>20+ Projects Shipped</span>
+            <span className="text-accent">•</span>
+            <span>Available for Freelance</span>
+          </div>
 
           <div className="flex flex-col items-center lg:items-start gap-4">
             <a
               href="/projects"
-              className="group relative text-xl md:text-2xl font-black text-white uppercase tracking-tighter"
+              className="group relative inline-flex items-center justify-center px-8 py-4 border-2 border-accent text-accent font-black uppercase tracking-tighter text-lg md:text-xl overflow-hidden hover:text-black transition-colors duration-300"
             >
-              View My Projects
-              <div className="absolute -bottom-1 left-0 w-full h-1 bg-white transition-transform origin-left scale-x-100 group-hover:scale-x-110" />
+              <span className="relative z-10">View My Projects</span>
+              <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0" />
             </a>
           </div>
         </motion.div>
 
-        {/* Right Visual (3D Avatar Placeholder) */}
+        {/* Right Visual — 3D Interactive Lanyard Badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
           className="relative flex justify-center lg:justify-end"
         >
-          <div className="relative w-[300px] md:w-[500px] aspect-square">
-            {/* Ink splat effect behind avatar */}
-            <div className="absolute inset-0 bg-white/5 blur-[100px] rounded-full scale-125 -z-10" />
-
-            {/* The profile image as a placeholder for the 3D avatar */}
-            <div className="relative w-full h-full rounded-[3rem] md:rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl">
-              <Image
-                src="/profile.jpg"
-                alt="Mahajan Ashok"
-                fill
-                className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
-                priority
-              />
-              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black via-black/50 to-transparent" />
-            </div>
-
-            {/* Floating badge */}
-            <motion.div
-              className="absolute -top-4 -right-4 md:-top-10 md:-right-10 bg-white text-black px-3 py-1.5 md:px-6 md:py-4 rounded-xl md:rounded-3xl font-black text-[0.6rem] md:text-xl shadow-2xl z-20"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-            >
-              FREELANCER
-            </motion.div>
+          <div className="relative w-full max-w-[500px] md:max-w-[700px] lg:max-w-[900px] h-[500px] md:h-[800px]">
+            {/* Glow effect behind the lanyard */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,191,255,0.15)_0%,transparent_60%)] blur-[60px] scale-110 -z-10" />
+            <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} cardImage="/profile.jpg" />
           </div>
         </motion.div>
       </div>

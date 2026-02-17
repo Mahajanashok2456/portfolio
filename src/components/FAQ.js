@@ -14,10 +14,6 @@ const faqs = [
         a: "My core stack includes Python (FastAPI, LangChain, PyTorch), JavaScript/TypeScript (React, Next.js), MongoDB, PostgreSQL, and deployment on Vercel/Railway/Docker. For AI, I work with OpenAI, Google Gemini, Hugging Face, and vector databases like Pinecone and ChromaDB."
     },
     {
-        q: "How much does a project cost?",
-        a: "Projects vary based on scope. Simple websites start from $500, AI chatbots from $1,500, and full AI SaaS platforms from $3,000+. I offer fixed-price, milestone-based, and hourly billing. Book a free consultation to get an accurate quote."
-    },
-    {
         q: "Do you work with international clients?",
         a: "Absolutely! I work with clients globally across the US, EU, UK, and Asia. All communication is in English, and I use tools like Slack, Discord, and Google Meet for seamless collaboration across time zones."
     },
@@ -40,10 +36,10 @@ const faqs = [
 ];
 
 export default function FAQ() {
-    const [openIndex, setOpenIndex] = useState(null);
+    const [openIndex, setOpenIndex] = useState(0);
 
     return (
-        <section id="faq" className="py-12 md:py-32 bg-black border-t border-white/5">
+        <section id="faq" className="py-12 md:py-32 bg-black border-t border-accent/20">
             <div className="max-w-[900px] mx-auto px-6 md:px-16">
                 <h2 className="section-title-premium text-left mb-8 md:mb-16">Frequently <br /><span className="text-white/30 tracking-tight">Asked Questions</span></h2>
 

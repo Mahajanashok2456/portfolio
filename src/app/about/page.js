@@ -14,7 +14,7 @@ export default function AboutPage() {
         <main className="min-h-screen selection:bg-white selection:text-black bg-black overflow-x-hidden">
             <Navbar />
 
-            <div className="relative z-10 pt-24">
+            <div className="relative z-10 pt-32 md:pt-48">
                 <About />
                 <Education />
             </div>

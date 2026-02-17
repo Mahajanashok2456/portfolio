@@ -5,16 +5,17 @@ import { FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa6';
 
 export default function Footer() {
     return (
-        <footer className="py-16 md:py-24 bg-black text-center relative overflow-hidden border-t border-white/5">
+        <footer className="py-16 md:py-24 bg-black text-center relative overflow-hidden border-t border-accent/20">
             <div className="max-w-[1200px] mx-auto px-6 md:px-8">
                 <h3 className="text-3xl md:text-5xl font-black mb-4 md:mb-6 tracking-tighter uppercase whitespace-nowrap">MAHAJAN ASHOK</h3>
-                <p className="text-white/40 text-[0.6rem] md:text-sm uppercase tracking-[0.3em] font-black mb-10 md:mb-16">
-                    Architecting the Future of AI & Web
+                <p className="text-white/40 text-[0.6rem] md:text-xs uppercase tracking-[0.3em] font-black mb-10 md:mb-16">
+                    FastAPI <span className="text-accent">·</span> React <span className="text-accent">·</span> MongoDB <span className="text-accent">·</span> LLMs
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-x-8 md:gap-x-16 gap-y-6 mb-10 md:mb-16">
                     <Link href="/" className="text-[0.65rem] md:text-sm font-black uppercase tracking-widest hover:text-white transition-colors text-white/50">HOME</Link>
                     <Link href="/projects" className="text-[0.65rem] md:text-sm font-black uppercase tracking-widest hover:text-white transition-colors text-white/50">PROJECTS</Link>
+                    <Link href="/experience" className="text-[0.65rem] md:text-sm font-black uppercase tracking-widest hover:text-white transition-colors text-white/50">EXPERIENCE</Link>
                     <Link href="/about" className="text-[0.65rem] md:text-sm font-black uppercase tracking-widest hover:text-white transition-colors text-white/50">ABOUT</Link>
                     <Link href="/contact" className="text-[0.65rem] md:text-sm font-black uppercase tracking-widest hover:text-white transition-colors text-white/50">CONTACT</Link>
                 </div>

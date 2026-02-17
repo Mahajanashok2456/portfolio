@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaInstagram, FaGithub, FaLinkedin, FaBars, FaXmark } from 'react-icons/fa6';
 import { clsx } from 'clsx';
@@ -9,6 +10,7 @@ import { clsx } from 'clsx';
 const navItems = [
     { name: 'Home', href: '/' },
     { name: 'Projects', href: '/projects' },
+    { name: 'Experience', href: '/experience' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
 ];
@@ -16,6 +18,7 @@ const navItems = [
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -45,9 +48,18 @@ export default function Navbar() {
                             <li key={item.name}>
                                 <Link
                                     href={item.href}
-                                    className="text-sm font-medium text-white/70 hover:text-white transition-colors uppercase tracking-widest"
+                                    className={clsx(
+                                        "text-sm font-medium transition-colors uppercase tracking-widest relative group",
+                                        pathname === item.href ? "text-accent" : "text-white/70 hover:text-accent"
+                                    )}
                                 >
                                     {item.name}
+                                    {pathname === item.href && (
+                                        <motion.div
+                                            layoutId="underline"
+                                            className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
+                                        />
+                                    )}
                                 </Link>
                             </li>
                         ))}
@@ -55,7 +67,7 @@ export default function Navbar() {
 
                     <div className="flex items-center gap-6 text-white/70 border-l border-white/10 pl-6 ml-6">
                         {/* Freelance Status Indicator */}
-                        <div className="hidden xl:flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full transition-colors hover:bg-white/10 hover:border-white/20 cursor-default">
+                        <div className="hidden xl:flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full transition-colors hover:bg-white/10 hover:border-accent/30 cursor-default">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>

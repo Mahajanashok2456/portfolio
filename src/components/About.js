@@ -1,65 +1,53 @@
 'use client';
-
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import CurvedLoop from './CurvedLoop';
 
 export default function About() {
+  const skillsText = "AI / ML ✦ RAG Pipelines ✦ LangChain ✦ Gemini API ✦ OpenAI ✦ PyTorch ✦ Hugging Face ✦ Frontend ✦ React ✦ Next.js ✦ Framer Motion ✦ Tailwind CSS ✦ TypeScript ✦ Backend ✦ FastAPI ✦ Python ✦ Node.js ✦ MongoDB ✦ PostgreSQL ✦ Docker ✦ Tools ✦ Git ✦ Vercel ✦ Linux ✦ VS Code ✦ Postman ✦";
+
   return (
-    <section id="about" className="py-12 md:py-32 bg-black border-t border-white/5 overflow-hidden">
+    <section id="about" className="pt-24 pb-12 md:pt-32 md:pb-24 bg-black border-t border-accent/20 fade-in-section overflow-hidden">
+      {/* Edge-masked Marquee Container */}
+      <div
+        className="relative w-full py-4 mb-16"
+        style={{
+          maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+        }}
+      >
+        <CurvedLoop
+          marqueeText={skillsText}
+          speed={1.5}
+          curveAmount={100}
+          className="text-accent/60"
+        />
+        <CurvedLoop
+          marqueeText={skillsText}
+          speed={1.2}
+          curveAmount={-100}
+          direction="right"
+          className="text-white/10"
+        />
+      </div>
+
       <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
-          >
-            <h2 className="text-[0.6rem] font-black text-white/40 uppercase tracking-[0.4em] mb-4 md:mb-6">Why Visionary Founders Trust</h2>
-            <h3 className="text-4xl md:text-8xl font-black text-white mb-6 md:mb-10 leading-[1.0] md:leading-[0.9] tracking-tighter uppercase whitespace-pre-line">
-              MAHAJAN {'\n'} <span className="text-white/20">ASHOK.</span>
-            </h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <h2 className="text-6xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[0.8]">
+            About <br />
+            <span className="text-white/20">Me</span>
+          </h2>
 
-            <div className="space-y-6 md:space-y-8 text-base md:text-xl text-white/60 leading-relaxed font-medium max-w-xl mx-auto lg:mx-0">
-              <p>
-                As a specialized <span className="text-white">Full Stack SaaS & AI Architect</span>, I don&apos;t just deliver code—I deliver competitive advantage. I build <span className="text-white">Agentic Workflows</span>, <span className="text-white">RAG Engines</span>, and <span className="text-white">Scalable SaaS Platforms</span> that dominate markets.
-              </p>
-              <p>
-                B.Tech in Computer Science (Data Science) at TKR College of Engineering and Technology, Hyderabad with CGPA 8.06/10. Former AI Engineer Intern at RoamVerse Solutions.
-              </p>
-            </div>
-
-            <div className="flex justify-center lg:justify-start gap-12 md:gap-16 mt-12 md:mt-16">
-              <div>
-                <h4 className="text-4xl md:text-5xl font-black text-white">4+</h4>
-                <p className="text-[0.6rem] text-white/30 font-black uppercase tracking-widest mt-2">Core Tech Stacks</p>
-              </div>
-              <div>
-                <h4 className="text-4xl md:text-5xl font-black text-white">10+</h4>
-                <p className="text-[0.6rem] text-white/30 font-black uppercase tracking-widest mt-2">AI Projects Live</p>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="relative aspect-square w-full max-w-[500px] mx-auto lg:ml-auto">
-              <div className="absolute inset-0 bg-white/5 blur-[120px] rounded-full scale-110" />
-              <div className="relative h-full w-full rounded-[3rem] overflow-hidden border border-white/10 contrast-125">
-                <Image
-                  src="https://cdn3d.iconscout.com/3d/premium/thumb/web-developer-3d-icon-png-download-3738664.png"
-                  alt="3D Developer Avatar"
-                  fill
-                  className="object-contain scale-110 drop-shadow-2xl"
-                />
-              </div>
-            </div>
-          </motion.div>
+          <div className="text-base md:text-lg text-white/70 leading-relaxed font-medium space-y-6 lg:pt-4">
+            <p>
+              I am an AI Engineer and Full Stack Developer driven by the goal of building products that solve real problems. My journey started with a curiosity for data and evolved into architecting complex RAG pipelines and scalable web applications.
+            </p>
+            <p>
+              I specialize in bridging the gap between cutting-edge AI research and production-ready software. Whether it&apos;s optimizing a MongoDB query or fine-tuning a prompt for an LLM, I obsess over performance and user experience.
+            </p>
+            <p>
+              Currently available for freelance projects and consulting.
+            </p>
+          </div>
         </div>
       </div>
     </section>

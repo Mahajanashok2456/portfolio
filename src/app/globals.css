@@ -1,15 +1,19 @@
 @import "tailwindcss";
 
+/* High Contrast Minimalist Palette */
 :root {
-  /* High Contrast Minimalist Palette */
   --bg-main: #000000;
   --bg-card: rgba(20, 20, 20, 0.4);
 
   --primary: #ffffff;
-  --secondary: #a0a0a0;
+  --secondary: #e0e0e0;
+  /* Increased contrast from #a0a0a0 */
+  --accent: #00BFFF;
+  /* Electric Blue */
 
   --text-main: #ffffff;
-  --text-muted: rgba(255, 255, 255, 0.5);
+  --text-muted: #A0A0A0;
+  /* Minimum contrast on black */
 
   --border-glass: rgba(255, 255, 255, 0.1);
 }
@@ -19,6 +23,20 @@
   --color-foreground: var(--text-main);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+}
+
+/* Scroll Animation Utilities */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Global Reset & Base */
@@ -32,6 +50,12 @@ body {
   background-color: var(--bg-main);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 /* Typography Overrides for the Design */
