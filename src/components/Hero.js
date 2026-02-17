@@ -83,7 +83,7 @@ export default function Hero() {
 
           <div className="flex flex-col items-center lg:items-start gap-4">
             <a
-              href="#trusted"
+              href="/projects"
               className="group relative text-xl md:text-2xl font-black text-white uppercase tracking-tighter"
             >
               View My Projects

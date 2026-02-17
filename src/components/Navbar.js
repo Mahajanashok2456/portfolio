@@ -7,10 +7,10 @@ import { FaInstagram, FaGithub, FaLinkedin, FaBars, FaXmark } from 'react-icons/
 import { clsx } from 'clsx';
 
 const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'About', href: '#about' },
-    { name: 'Contacts', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
