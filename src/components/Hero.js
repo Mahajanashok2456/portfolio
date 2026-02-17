@@ -3,15 +3,66 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+const FloatingIcons = () => {
+  const icons = [
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", width: 50, height: 50, delay: 0, duration: 15, x: "10%", y: "20%" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", width: 60, height: 60, delay: 2, duration: 18, x: "80%", y: "15%" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", width: 45, height: 45, delay: 4, duration: 20, x: "20%", y: "70%" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", width: 55, height: 55, delay: 1, duration: 17, x: "85%", y: "60%" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", width: 50, height: 50, delay: 3, duration: 16, x: "50%", y: "10%", className: "invert" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", width: 55, height: 55, delay: 5, duration: 19, x: "15%", y: "40%" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg", width: 60, height: 60, delay: 2, duration: 22, x: "75%", y: "80%" },
+    { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", width: 50, height: 50, delay: 6, duration: 25, x: "40%", y: "90%" }
+  ];
+
+  return (
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      {icons.map((icon, index) => (
+        <motion.div
+          key={index}
+          className={`absolute opacity-20 hover:opacity-100 transition-opacity duration-300 ${icon.className || ''}`}
+          style={{ left: icon.x, top: icon.y }}
+          animate={{
+            y: [0, -40, 20, -60, 0],
+            x: [0, 50, -30, 20, 0],
+            rotate: [0, 20, -10, 15, 0],
+            scale: [1, 1.1, 0.9, 1.1, 1]
+          }}
+          transition={{
+            duration: icon.duration * 1.5,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+            delay: icon.delay,
+          }}
+        >
+          <div className="relative drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+            <Image
+              src={icon.src}
+              alt="Tech Icon"
+              width={icon.width}
+              height={icon.height}
+            />
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex flex-col lg:flex-row items-center justify-center relative overflow-hidden bg-black px-6 md:px-16 lg:px-24 pt-40 pb-20 lg:py-0">
+    <section id="home" className="min-h-screen flex flex-col lg:flex-row items-center justify-center relative overflow-hidden bg-black px-6 md:px-16 lg:px-24 pt-28 pb-12 lg:py-0">
+
+      {/* Dynamic Floating Icons Background */}
+      <FloatingIcons />
+
       {/* Smoke/Ink Effect Background */}
       <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(50,50,50,0.5)_0%,transparent_70%)] blur-3xl" />
       </div>
 
-      <div className="max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center z-10">
+      <div className="max-w-[1440px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-center z-10">
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -22,7 +73,7 @@ export default function Hero() {
           <p className="text-sm md:text-2xl font-black text-white/40 uppercase tracking-[0.4em] mb-4">
             Hi, I&apos;m Mahajan
           </p>
-          <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-8 uppercase leading-[1.1] lg:leading-[0.9]">
+          <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-6 uppercase leading-none lg:leading-[0.9]">
             AI ENGINEER & <br />
             <span className="text-transparent border-t-0 bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/50">FULL STACK DEV</span>
           </h1>
@@ -32,7 +83,7 @@ export default function Hero() {
 
           <div className="flex flex-col items-center lg:items-start gap-4">
             <a
-              href="#projects"
+              href="#trusted"
               className="group relative text-xl md:text-2xl font-black text-white uppercase tracking-tighter"
             >
               View My Projects

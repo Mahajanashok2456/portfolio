@@ -65,16 +65,16 @@ const projects = [
 
 export default function Projects() {
     return (
-        <section id="projects" className="py-20 md:py-32 bg-black border-t border-white/5">
+        <section id="projects" className="py-12 md:py-32 bg-black border-t border-white/5">
             <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8">
-                    <h2 className="section-title-premium text-left mb-0">Selected <br /><span className="text-white/30 tracking-tight">Case Studies</span></h2>
-                    <a href="https://github.com/Mahajanashok2456" target="_blank" className="text-lg md:text-xl font-bold border-b-2 border-white pb-1 hover:text-white/70 hover:border-white/70 transition-all w-fit">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-24 gap-6">
+                    <h2 className="section-title-premium text-left mb-0">SaaS Prototypes <br /><span className="text-white/30 tracking-tight">& AI Implementations</span></h2>
+                    <a href="https://github.com/Mahajanashok2456" target="_blank" className="text-sm md:text-xl font-bold border-b-2 border-white pb-1 hover:text-white/70 hover:border-white/70 transition-all w-fit">
                         Full Archive (GITHUB)
                     </a>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
@@ -84,7 +84,7 @@ export default function Projects() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                         >
-                            <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] md:rounded-[3rem] mb-6 md:mb-8 border border-white/10">
+                            <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] mb-4 md:mb-5 border border-white/10">
                                 <Image
                                     src={project.image}
                                     alt={project.title}
@@ -93,14 +93,14 @@ export default function Projects() {
                                 />
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
 
-                                <a href={project.link} target="_blank" className="absolute bottom-6 right-6 md:bottom-8 md:right-8 w-12 h-12 md:w-16 md:h-16 bg-white text-black rounded-full flex items-center justify-center text-xl md:text-2xl opacity-100 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500">
+                                <a href={project.link} target="_blank" className="absolute bottom-4 right-4 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center text-lg opacity-100 md:opacity-0 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-500">
                                     <FaSquareArrowUpRight />
                                 </a>
                             </div>
 
-                            <div className="flex flex-col gap-2 px-2">
-                                <span className="text-[0.65rem] font-black uppercase tracking-[0.3em] text-white/40">{project.category}</span>
-                                <h3 className="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase group-hover:text-white/70 transition-colors leading-tight">
+                            <div className="flex flex-col gap-1 px-1">
+                                <span className="text-[0.55rem] font-black uppercase tracking-[0.2em] text-white/40">{project.category}</span>
+                                <h3 className="text-xl md:text-2xl font-black text-white tracking-tighter uppercase group-hover:text-white/70 transition-colors leading-tight">
                                     {project.title}
                                 </h3>
                             </div>

@@ -26,15 +26,15 @@ const achievements = [
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-20 md:py-32 bg-black border-t border-white/5">
+    <section id="trusted" className="py-20 md:py-32 bg-black border-t border-white/5">
       <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-        <h2 className="section-title-premium text-left mb-16 md:mb-24">Impact & <br /><span className="text-white/30 tracking-tight">Leadership</span></h2>
+        <h2 className="section-title-premium text-left mb-16 md:mb-24">Trusted by <br /><span className="text-white/30 tracking-tight">Industry Experts</span></h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {achievements.map((item, index) => (
             <motion.div
               key={index}
-              className="group relative p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] border border-white/5 bg-white/[0.02] overflow-hidden transition-all duration-500 hover:border-transparent"
+              className="group relative p-6 md:p-8 rounded-[1.5rem] border border-white/5 bg-white/[0.02] overflow-hidden transition-all duration-500 hover:border-transparent"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -44,7 +44,7 @@ export default function Achievements() {
               <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
 
               <div className="relative z-10">
-                <div className="mb-10 relative h-24 w-24 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                <div className="mb-6 relative h-16 w-16 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
                   <Image
                     src={item.icon}
                     alt={item.title}
@@ -53,9 +53,9 @@ export default function Achievements() {
                   />
                 </div>
 
-                <h4 className="text-[0.65rem] font-black text-white/40 uppercase tracking-[0.3em] mb-3">{item.subtitle}</h4>
-                <h3 className="text-3xl font-black mb-4 tracking-tighter uppercase leading-tight text-white">{item.title}</h3>
-                <p className="text-lg text-white/50 leading-relaxed font-medium">{item.description}</p>
+                <h4 className="text-[0.5rem] font-black text-white/40 uppercase tracking-[0.2em] mb-2">{item.subtitle}</h4>
+                <h3 className="text-xl font-black mb-3 tracking-tighter uppercase leading-tight text-white">{item.title}</h3>
+                <p className="text-sm text-white/50 leading-relaxed font-medium">{item.description}</p>
               </div>
             </motion.div>
           ))}
