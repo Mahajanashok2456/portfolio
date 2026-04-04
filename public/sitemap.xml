@@ -1,62 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.mahajanashok.in/</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://mahajanashok.in/</loc>
+    <lastmod>2025-04-05T00:00:00.000Z</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.mahajanashok.in/projects</loc>
-    <lastmod>2026-02-17</lastmod>
+    <loc>https://mahajanashok.in/about</loc>
+    <lastmod>2025-04-05T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mahajanashok.in/projects</loc>
+    <lastmod>2025-04-05T00:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.mahajanashok.in/about</loc>
-    <lastmod>2026-02-17</lastmod>
+    <loc>https://mahajanashok.in/experience</loc>
+    <lastmod>2025-04-05T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.mahajanashok.in/contact</loc>
-    <lastmod>2026-02-17</lastmod>
+    <loc>https://mahajanashok.in/contact</loc>
+    <lastmod>2025-04-05T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.mahajanashok.in/generative-ai-development</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.mahajanashok.in/rag-pipeline-development</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.mahajanashok.in/ai-chatbot-development</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.mahajanashok.in/fastapi-backend-development</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.mahajanashok.in/hire-ai-engineer</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.mahajanashok.in/experience</loc>
-    <lastmod>2026-02-17</lastmod>
+    <loc>https://mahajanashok.in/hire-ai-engineer</loc>
+    <lastmod>2025-04-05T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
