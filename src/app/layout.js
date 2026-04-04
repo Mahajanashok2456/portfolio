@@ -2,6 +2,8 @@ import { Outfit } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import ScrollObserver from "@/components/ScrollObserver";
+import { Providers } from "@/components/Providers";
+
 const outfit = Outfit({
   subsets: ["latin"],
   display: 'swap',
@@ -123,8 +125,10 @@ export default function RootLayout({ children }) {
         `}
       </Script>
       <body className={`${outfit.className} antialiased bg-dark text-light`} suppressHydrationWarning={true}>
-        <ScrollObserver />
-        {children}
+        <Providers>
+          <ScrollObserver />
+          {children}
+        </Providers>
       </body>
     </html>
   );

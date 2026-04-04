@@ -1,78 +1,80 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Cpu, Layers, Database, Eye, Terminal, GitBranch } from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
 
-const skills = [
+const fallbackSkills = [
   {
-    icon: Cpu,
+    iconName: 'Cpu',
     title: 'AI/ML Deep Tech',
     description: 'PyTorch, LangChain, HuggingFace, RAG, Generative AI',
-    span: 'col-span-1 md:col-span-1'
   },
   {
-    icon: Layers,
+    iconName: 'Layers',
     title: 'Full Stack',
     description: 'React, Next.js, TypeScript, FastAPI',
-    span: 'col-span-1 md:col-span-1'
   },
   {
-    icon: Database,
+    iconName: 'Database',
     title: 'Databases',
     description: 'MongoDB, Supabase, SQL',
-    span: 'col-span-1 md:col-span-1'
-  },
-  {
-    icon: Eye,
-    title: 'NLP & Vision',
-    description: 'Transformers, Vision Transformers (ViT)',
-    span: 'col-span-1 md:col-span-1'
-  },
-  {
-    icon: Terminal,
-    title: 'Prompt Engineering',
-    description: 'Gemini, LangChain APIs',
-    span: 'col-span-1 md:col-span-1'
-  },
-  {
-    icon: GitBranch,
-    title: 'DevOps',
-    description: 'Git, Vercel, Railway, CI/CD',
-    span: 'col-span-1 md:col-span-1'
   }
 ];
 
 export default function Skills() {
+  const [skills, setSkills] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const res = await fetch('/api/skills');
+        const data = await res.json();
+        if (data.success && data.data && data.data.length > 0) {
+          setSkills(data.data);
+        } else {
+          setSkills(fallbackSkills);
+        }
+      } catch (error) {
+        console.error('Error fetching skills:', error);
+        setSkills(fallbackSkills);
+      }
+      setLoading(false);
+    };
+    fetchSkills();
+  }, []);
+
+  if (loading) return null;
+
   return (
-    <section id="skills" className="py-12 md:py-24 bg-black overflow-hidden border-t border-white/5 fade-in-section">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-        <h2 className="section-title-premium text-left mb-12 md:mb-16">
-          Specialized SaaS <br />
-          <span className="text-white/35 tracking-tight">& AI Engineering</span>
-        </h2>
+    <section id="skills" className="py-24 md:py-48 bg-white border-t border-black/5">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8">
+        <h2 className="section-title-minimal">Specialized Skills</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={index}
-              className="group relative p-6 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col items-start justify-between h-56 transition-all duration-500 hover:border-accent/40 hover:-translate-y-2"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16 mt-16">
+          {skills.map((skill, index) => {
+            const Icon = LucideIcons[skill.iconName] || LucideIcons.Cpu;
+            return (
+              <motion.div
+                key={index}
+                className="group flex flex-col p-8 border border-black/5 hover:border-black/10 transition-colors bg-gray-50/30"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <div className="mb-6 text-black/40 group-hover:text-black transition-colors">
+                  <Icon size={32} strokeWidth={1} />
+                </div>
 
-              <div className="relative z-10 bg-white/5 p-3 rounded-lg text-white mb-4 group-hover:text-accent transition-colors">
-                <skill.icon size={28} strokeWidth={1.5} />
-              </div>
-
-              <div className="relative z-10 mt-auto">
-                <h3 className="text-[0.85rem] font-bold text-white tracking-[0.1em] uppercase mb-1.5">{skill.title}</h3>
-                <p className="text-[0.75rem] text-[#888] font-medium leading-relaxed">{skill.description}</p>
-              </div>
-            </motion.div>
-          ))}
+                <div className="flex flex-col">
+                  <h3 className="text-xl font-black uppercase tracking-tight text-black mb-4">{skill.title}</h3>
+                  <p className="text-black/60 text-sm leading-relaxed">{skill.description}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

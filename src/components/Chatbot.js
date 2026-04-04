@@ -46,19 +46,18 @@ export default function Chatbot() {
         {showNotification && (
           <motion.div
             className="fixed bottom-24 right-6 z-[999] cursor-pointer"
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
             onClick={handleNotificationClick}
           >
-            <div className="bg-white text-dark p-4 rounded-2xl shadow-2xl flex items-center gap-4 relative border border-secondary/20">
-              <span className="text-2xl">💬</span>
-              <div>
-                <strong className="block text-sm">Hi there! 👋</strong>
-                <p className="text-xs text-gray-600">Need help? Ask me anything!</p>
+            <div className="bg-black text-white p-6 border border-white/10 shadow-2xl flex items-center gap-6 relative">
+              <div className="flex flex-col">
+                <strong className="block text-xs uppercase tracking-widest mb-1">AI Assistant</strong>
+                <p className="text-[0.65rem] text-white/60 uppercase tracking-widest font-bold">Ask me anything</p>
               </div>
               <button 
-                className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-xs shadow-md"
+                className="absolute -top-2 -right-2 w-6 h-6 bg-white text-black border border-black/5 flex items-center justify-center text-xs"
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowNotification(false);
@@ -67,8 +66,6 @@ export default function Chatbot() {
                 &times;
               </button>
             </div>
-            {/* Pointer arrow */}
-            <div className="absolute -bottom-2 right-8 w-4 h-4 bg-white rotate-45 border-r border-b border-secondary/20"></div>
           </motion.div>
         )}
       </AnimatePresence>

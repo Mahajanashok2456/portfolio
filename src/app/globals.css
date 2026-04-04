@@ -2,20 +2,17 @@
 
 /* High Contrast Minimalist Palette */
 :root {
-  --bg-main: #000000;
-  --bg-card: rgba(20, 20, 20, 0.4);
+  --bg-main: #ffffff;
+  --bg-card: #f9f9f9;
 
-  --primary: #ffffff;
-  --secondary: #e0e0e0;
-  /* Increased contrast from #a0a0a0 */
-  --accent: #00BFFF;
-  /* Electric Blue */
+  --primary: #000000;
+  --secondary: #333333;
+  --accent: #000000;
 
-  --text-main: #ffffff;
-  --text-muted: #A0A0A0;
-  /* Minimum contrast on black */
+  --text-main: #000000;
+  --text-muted: #666666;
 
-  --border-glass: rgba(255, 255, 255, 0.1);
+  --border-light: #eeeeee;
 }
 
 @theme inline {
@@ -26,12 +23,11 @@
   --color-accent: var(--accent);
 }
 
-/* Scroll Animation Utilities */
+/* Scroll Animation Utilities - Minimalist */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  will-change: opacity, transform;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .fade-in-section.is-visible {
@@ -48,58 +44,47 @@ html {
 body {
   color: var(--text-main);
   background-color: var(--bg-main);
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
 }
 
 /* Accessibility Focus States */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 1px solid var(--primary);
   outline-offset: 4px;
 }
 
-/* Typography Overrides for the Design */
+/* Typography Overrides */
 .font-black {
-  font-weight: 900;
+  font-weight: 800;
 }
 
-/* Glassmorphism Refined for High Contrast */
-.glass-effect {
+/* Minimalist Card */
+.minimal-card {
   background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-light);
+  padding: 2rem;
 }
 
-/* Premium Section Titles for the new style */
-.section-title-premium {
-  @apply text-4xl md:text-7xl font-black tracking-tighter uppercase mb-16 md:mb-24 text-left;
+/* Section Titles */
+.section-title-minimal {
+  @apply text-3xl md:text-5xl font-black tracking-tight mb-12 md:mb-16 text-left border-b-2 border-black pb-4 inline-block;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Minimal */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
   background: #fff;
 }
 
-/* Animations */
-@keyframes borderTravel {
-  0% {
-    offset-distance: 0%;
-  }
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
 
-  100% {
-    offset-distance: 100%;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: #000;
 }

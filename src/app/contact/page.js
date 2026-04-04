@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function ContactPage() {
     return (
-        <main className="min-h-screen selection:bg-white selection:text-black bg-black overflow-x-hidden">
+        <main className="min-h-screen selection:bg-black selection:text-white bg-white overflow-x-hidden">
             <Navbar />
 
             <div className="relative z-10 pt-32 md:pt-48">

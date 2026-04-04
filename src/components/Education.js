@@ -1,8 +1,9 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const education = [
+const fallbackEducation = [
   {
     school: 'TKR College of Engineering & Technology',
     degree: 'B.Tech in CSE (Data Science)',
@@ -16,50 +17,67 @@ const education = [
     period: '2020 – 2022',
     description: 'Advanced foundation in Mathematics, Physics, and Chemistry.',
     grade: 'Percentage: 77%'
-  },
-  {
-    school: 'Shastha Grammar School',
-    degree: 'SSC',
-    period: '2020',
-    description: 'Secondary School Certificate.',
-    grade: 'CGPA: 9.8 / 10'
   }
 ];
 
 export default function Education() {
-  return (
-    <section id="education" className="py-20 md:py-32 bg-black border-t border-white/5">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-        <h2 className="section-title-premium text-left mb-16 md:mb-24">Learning <br /><span className="text-white/30 tracking-tight">Timeline</span></h2>
+  const [education, setEducation] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-        <div className="space-y-6 md:space-y-12 max-w-5xl">
+  useEffect(() => {
+    const fetchEducation = async () => {
+      try {
+        const res = await fetch('/api/education');
+        const data = await res.json();
+        if (data.success && data.data && data.data.length > 0) {
+          setEducation(data.data);
+        } else {
+          setEducation(fallbackEducation);
+        }
+      } catch (error) {
+        console.error('Error fetching education:', error);
+        setEducation(fallbackEducation);
+      }
+      setLoading(false);
+    };
+    fetchEducation();
+  }, []);
+
+  if (loading) return null;
+
+  return (
+    <section id="education" className="py-24 md:py-48 bg-white border-t border-black/5">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8">
+        <h2 className="section-title-minimal">Education</h2>
+
+        <div className="mt-24 space-y-16">
           {education.map((item, index) => (
             <motion.div
               key={index}
-              className="bg-white/[0.02] p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] border border-white/5 relative group hover:border-white/20 transition-all duration-500 overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
+              className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-16 border-b border-black/5 pb-16 last:border-0"
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-                <div className="flex-1">
-                  <span className="inline-block px-4 py-1.5 rounded-full bg-white text-black text-[0.6rem] font-black tracking-widest uppercase mb-6">
-                    {item.period}
-                  </span>
-                  <h3 className="text-2xl md:text-5xl font-black mb-4 tracking-tighter uppercase leading-[1.1] md:leading-[0.9] text-white group-hover:text-white/70 transition-colors">
-                    {item.school}
-                  </h3>
-                  <p className="text-lg md:text-2xl font-bold text-white/50 mb-6">{item.degree}</p>
-                  <p className="text-white/40 text-base md:text-xl max-w-2xl leading-relaxed font-medium">
-                    {item.description}
-                  </p>
+              <div className="md:col-span-1">
+                <span className="text-black/40 font-bold text-xs uppercase tracking-[0.2em]">
+                  {item.period}
+                </span>
+              </div>
+
+              <div className="md:col-span-3">
+                <h3 className="text-2xl md:text-4xl font-black text-black uppercase tracking-tight mb-4">
+                  {item.school}
+                </h3>
+                <div className="flex flex-wrap items-center gap-4 mb-6">
+                  <p className="text-lg font-bold text-black/60 uppercase tracking-wider">{item.degree}</p>
+                  <span className="w-1 h-1 bg-black/10 rounded-full"></span>
+                  <span className="text-sm font-bold text-black/40 uppercase tracking-widest">{item.grade}</span>
                 </div>
-                <div className="md:text-right shrink-0">
-                  <span className="text-xs font-black text-white/20 uppercase tracking-widest group-hover:text-white/40 transition-colors">
-                    {item.grade}
-                  </span>
-                </div>
+                <p className="text-black/60 text-lg leading-relaxed max-w-2xl">
+                  {item.description}
+                </p>
               </div>
             </motion.div>
           ))}

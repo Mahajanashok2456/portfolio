@@ -1,66 +1,129 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaStar } from 'react-icons/fa6';
-
-const testimonials = [
-    {
-        quote: "Mahajan delivered exceptional work — the AI integration was seamless and the code quality was outstanding.",
-        name: "Alex Johnson",
-        role: "Founder, TechFlow",
-        rating: 5
-    },
-    {
-        quote: "The RAG pipeline he built transformed how we handle internal documentation. Truly an expert in his field.",
-        name: "Sarah Chen",
-        role: "CTO, DataSphere",
-        rating: 5
-    }
-];
+import { FaStar, FaQuoteLeft, FaExternalLinkAlt } from 'react-icons/fa';
 
 export default function Testimonials() {
-    return (
-        <section id="testimonials" className="py-24 md:py-32 bg-black border-t border-accent/20 fade-in-section">
-            <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-                <h2 className="section-title-premium text-left mb-16 md:mb-24">
-                    Client <br />
-                    <span className="text-white/35 tracking-tight">Testimonials</span>
-                </h2>
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {testimonials.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            className="p-8 md:p-10 rounded-3xl border border-white/10 bg-white/[0.02] flex flex-col justify-between min-h-[300px] relative overflow-hidden group hover:border-accent/40 transition-colors duration-500"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                        >
-                            <div className="absolute top-0 right-0 p-8 opacity-10 text-9xl leading-none font-serif text-white group-hover:text-accent transition-colors">”</div>
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const res = await fetch('/api/testimonials');
+        const data = await res.json();
+        if (data.success) {
+          // Only show approved testimonials on the main site
+          const approved = data.data.filter(t => t.isApproved);
+          setTestimonials(approved);
+        }
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+      }
+      setLoading(false);
+    };
+    fetchTestimonials();
+  }, []);
 
-                            <div className="flex gap-1 mb-6 text-accent">
-                                {[...Array(item.rating)].map((_, i) => (
-                                    <FaStar key={i} />
-                                ))}
-                            </div>
+  const formatUrl = (url) => {
+    if (!url) return '';
+    let formatted = url.trim();
+    
+    // Remove all whitespace for basic validation
+    if (formatted.includes(' ')) {
+      // Try to take the first word if there are spaces, or just skip if it's not a link
+      formatted = formatted.split(' ')[0];
+    }
+    
+    if (!formatted.startsWith('http://') && !formatted.startsWith('https://')) {
+      formatted = `https://${formatted}`;
+    }
+    
+    try {
+      const urlObj = new URL(formatted);
+      // Ensure there's a dot in the hostname (e.g., google.com, not just google)
+      if (!urlObj.hostname.includes('.')) return '';
+      return formatted;
+    } catch (e) {
+      return '';
+    }
+  };
 
-                            <p className="text-xl md:text-2xl text-white/80 font-medium leading-relaxed mb-8 relative z-10">
-                                &quot;{item.quote}&quot;
-                            </p>
+  if (loading || testimonials.length === 0) return null;
 
-                            <div>
-                                <h4 className="text-lg font-bold text-white tracking-wide">{item.name}</h4>
-                                <p className="text-sm text-white/50 font-bold uppercase tracking-widest mt-1">{item.role}</p>
-                            </div>
-                        </motion.div>
-                    ))}
+  return (
+    <section id="testimonials" className="py-24 md:py-48 bg-gray-50 border-t border-black/5">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8">
+        <h2 className="section-title-minimal">Client Feedback</h2>
+        <p className="text-4xl md:text-6xl font-black text-black/10 uppercase tracking-tighter leading-none mt-4 mb-24">
+          TRUSTED BY <br /> VISIONARIES
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((item, index) => {
+            const liveUrl = formatUrl(item.websiteLink);
+            return (
+              <motion.div
+                key={item._id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white p-8 border border-black/5 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="text-black/10 group-hover:text-black transition-colors">
+                      <FaQuoteLeft size={32} />
+                    </div>
+                    <div className="flex gap-1 text-xs text-black">
+                      {[...Array(item.rating)].map((_, i) => (
+                        <FaStar key={i} />
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className="text-lg font-medium text-black/80 leading-relaxed italic mb-8">
+                    "{item.feedback}"
+                  </p>
                 </div>
 
-                <div className="mt-12 text-center">
-                    <p className="text-white/30 text-xs font-black uppercase tracking-[0.2em]">More coming soon</p>
+                <div className="border-t border-black/5 pt-6">
+                  <h3 className="font-black uppercase tracking-tight text-sm mb-3">{item.name}</h3>
+                  {liveUrl && (
+                    <div className="space-y-4">
+                      <a 
+                        href={liveUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-[10px] font-bold text-black/40 uppercase tracking-widest hover:text-black transition-colors flex items-center gap-2 mb-4"
+                      >
+                        View Live Website <FaExternalLinkAlt size={8} />
+                      </a>
+                      
+                      {/* Live Preview Iframe */}
+                      <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-black/5 bg-gray-100 group/preview">
+                        <iframe 
+                          src={liveUrl} 
+                          className="w-[200%] h-[200%] scale-50 origin-top-left pointer-events-none opacity-60 group-hover/preview:opacity-100 transition-opacity"
+                          title={`Preview of ${item.name}'s project`}
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover/preview:bg-black/20 transition-all">
+                          <span className="bg-white text-black text-[8px] font-black uppercase tracking-widest px-3 py-2 rounded shadow-xl opacity-0 group-hover/preview:opacity-100 transition-all translate-y-2 group-hover/preview:translate-y-0">
+                            Visit Site
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-            </div>
-        </section>
-    );
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 }

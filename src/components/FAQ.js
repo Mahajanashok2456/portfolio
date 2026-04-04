@@ -39,15 +39,15 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState(0);
 
     return (
-        <section id="faq" className="py-12 md:py-32 bg-black border-t border-accent/20">
-            <div className="max-w-[900px] mx-auto px-6 md:px-16">
-                <h2 className="section-title-premium text-left mb-8 md:mb-16">Frequently <br /><span className="text-white/30 tracking-tight">Asked Questions</span></h2>
+        <section id="faq" className="py-16 md:py-24 bg-white border-t border-black/5">
+            <div className="max-w-[1200px] mx-auto px-6 md:px-8">
+                <h2 className="section-title-minimal">Frequently Asked Questions</h2>
 
-                <div className="space-y-3">
+                <div className="mt-24 space-y-0 border-t border-black/5">
                     {faqs.map((faq, i) => (
                         <motion.div
                             key={i}
-                            className="border border-white/10 rounded-2xl overflow-hidden bg-white/[0.02]"
+                            className="border-b border-black/5 overflow-hidden"
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -55,10 +55,12 @@ export default function FAQ() {
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                                className="w-full flex items-center justify-between p-5 md:p-6 text-left cursor-pointer"
+                                className="w-full flex items-center justify-between py-10 text-left cursor-pointer group"
                             >
-                                <span className="font-black text-sm md:text-base uppercase tracking-tight pr-4">{faq.q}</span>
-                                <FaChevronDown className={`text-white/40 flex-shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`} />
+                                <span className="font-black text-xl md:text-2xl uppercase tracking-tight text-black group-hover:text-black/60 transition-colors">{faq.q}</span>
+                                <div className={`w-8 h-8 flex items-center justify-center border border-black/10 rounded-full transition-transform duration-300 ${openIndex === i ? 'rotate-180 bg-black text-white' : 'text-black/40'}`}>
+                                    <FaChevronDown className="text-xs" />
+                                </div>
                             </button>
 
                             <AnimatePresence>
@@ -67,10 +69,10 @@ export default function FAQ() {
                                         initial={{ height: 0, opacity: 0 }}
                                         animate={{ height: 'auto', opacity: 1 }}
                                         exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.3 }}
+                                        transition={{ duration: 0.3, ease: "easeOut" }}
                                         className="overflow-hidden"
                                     >
-                                        <p className="px-5 md:px-6 pb-5 md:pb-6 text-white/50 text-sm leading-relaxed font-medium">
+                                        <p className="pb-10 text-black/60 text-lg md:text-xl leading-relaxed font-medium max-w-3xl">
                                             {faq.a}
                                         </p>
                                     </motion.div>

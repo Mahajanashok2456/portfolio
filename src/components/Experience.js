@@ -1,9 +1,10 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import ScrollFloat from './ScrollFloat';
 
-const experiences = [
+const fallbackExperiences = [
   {
     role: 'Artificial Intelligence Engineer',
     company: 'RoamVerse Solutions Pvt. Ltd.',
@@ -17,74 +18,65 @@ const experiences = [
     location: 'Remote',
     period: 'Jul 2025 - Present',
     description: 'Contributed to building and deploying AI/ML models. Supported scalable solutions for real-world applications.',
-  },
-  {
-    role: 'Full Stack Developer Intern',
-    company: 'Flora Edze',
-    location: 'Hyderabad, Remote',
-    period: 'Mar 2025 - Jun 2025',
-    description: 'Developed full-stack web applications using modern technologies, focusing on scalable and efficient solutions.',
   }
 ];
 
 export default function Experience() {
-  return (
-    <section id="experience" className="py-12 md:py-24 bg-black fade-in-section">
-      <div className="max-w-[1000px] mx-auto px-6 md:px-16">
-        <div className="flex flex-col items-start gap-0 mb-16 md:mb-24">
-          <ScrollFloat
-            animationDuration={1}
-            ease='back.inOut(2)'
-            scrollStart='center bottom+=50%'
-            scrollEnd='bottom bottom-=40%'
-            stagger={0.03}
-            containerClassName="m-0 leading-[0.8]"
-            textClassName="text-white uppercase tracking-tighter text-left"
-          >
-            WORK
-          </ScrollFloat>
-          <ScrollFloat
-            animationDuration={1}
-            ease='back.inOut(2)'
-            scrollStart='center bottom+=50%'
-            scrollEnd='bottom bottom-=40%'
-            stagger={0.03}
-            containerClassName="m-0 leading-[0.8]"
-            textClassName="text-white/30 uppercase tracking-tighter text-left"
-          >
-            EXPERIENCE
-          </ScrollFloat>
-        </div>
+  const [experiences, setExperiences] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-        <div className="relative border-l-2 border-accent/20 ml-3 md:ml-6 space-y-16">
+  useEffect(() => {
+    const fetchExperiences = async () => {
+      try {
+        const res = await fetch('/api/experience');
+        const data = await res.json();
+        if (data.success && data.data && data.data.length > 0) {
+          setExperiences(data.data);
+        } else {
+          setExperiences(fallbackExperiences);
+        }
+      } catch (error) {
+        console.error('Error fetching experiences:', error);
+        setExperiences(fallbackExperiences);
+      }
+      setLoading(false);
+    };
+    fetchExperiences();
+  }, []);
+
+  if (loading) return null;
+
+  return (
+    <section id="experience" className="py-16 md:py-24 bg-white border-t border-black/5">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8">
+        <h2 className="section-title-minimal">Work Experience</h2>
+
+        <div className="mt-24 space-y-24">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              className="relative pl-8 md:pl-16"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-16"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              {/* Timeline Dot */}
-              <div className="absolute -left-[5px] top-2 w-3 h-3 bg-accent rounded-full shadow-[0_0_10px_var(--accent)]" />
-
-              <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-10">
-                <span className="text-accent font-black text-sm uppercase tracking-widest min-w-[140px]">
+              <div className="md:col-span-1">
+                <span className="text-black/40 font-bold text-xs uppercase tracking-[0.2em]">
                   {exp.period}
                 </span>
+              </div>
 
-                <div className="flex-1">
-                  <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter mb-1">
-                    {exp.role}
-                  </h3>
-                  <p className="text-base md:text-lg font-bold text-white/70 mb-4">
-                    {exp.company} <span className="text-white/30">• {exp.location}</span>
-                  </p>
-                  <p className="text-white/70 leading-relaxed font-medium">
-                    {exp.description}
-                  </p>
-                </div>
+              <div className="md:col-span-3">
+                <h3 className="text-2xl md:text-4xl font-black text-black uppercase tracking-tight mb-2">
+                  {exp.role}
+                </h3>
+                <p className="text-lg font-bold text-black/60 mb-6 uppercase tracking-wider">
+                  {exp.company} <span className="text-black/20 font-normal ml-2">/ {exp.location}</span>
+                </p>
+                <p className="text-black/60 text-lg leading-relaxed max-w-2xl">
+                  {exp.description}
+                </p>
               </div>
             </motion.div>
           ))}
