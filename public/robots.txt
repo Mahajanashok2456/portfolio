@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.mahajanashok.in/sitemap.xml
+Disallow: /api/
+Sitemap: https://mahajanashok.in/sitemap.xml

@@ -52,7 +52,7 @@ export default function HireAIEngineer() {
                         </motion.div>
                         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative hidden lg:block">
                             <div className="relative w-full aspect-square max-w-[500px] mx-auto overflow-hidden border border-black/5 bg-gray-50/30">
-                                <Image src="/profile.jpg" alt="Mahajan Ashok - AI Engineer" fill className="object-cover object-top grayscale" />
+                                <Image src="/profile.jpg" alt="Mahajan Ashok freelance AI engineer and full stack developer from Hyderabad India" fill className="object-cover object-top grayscale" />
                             </div>
                         </motion.div>
                     </div>

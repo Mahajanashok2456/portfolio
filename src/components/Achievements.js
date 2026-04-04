@@ -47,7 +47,7 @@ export default function Achievements() {
                 <div className="mb-6 relative h-16 w-16 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
                   <Image
                     src={item.icon}
-                    alt={item.title}
+                    alt={`${item.title} icon — achievement by Mahajan Ashok`}
                     fill
                     className="object-contain drop-shadow-2xl"
                   />

@@ -43,7 +43,7 @@ const FloatingIcons = () => {
           <div className="drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]">
             <Image
               src={icon.src}
-              alt="Tech Icon"
+              alt={`${icon.src.split('/').slice(-2, -1)[0]} logo — used by Mahajan Ashok freelance AI engineer`}
               width={icon.size}
               height={icon.size}
             />

@@ -50,6 +50,20 @@ export default function Projects() {
         fetchProjects();
     }, []);
 
+    const getAltText = (title) => {
+        const altMap = {
+            'AI Guru Multibot': 'AI Guru Multibot — multimodal AI chatbot built with Gemini Pro Vision by Mahajan Ashok',
+            'Mitra AI Therapist': 'Mitra AI Therapist — RAG-powered mental health chatbot built with LangChain and FastAPI',
+            'PDF Toolkit': 'PDF Toolkit SaaS app — AI-powered PDF processing tool by Mahajan Ashok',
+            'Expenso': 'Expenso expense tracker — full stack fintech app by Mahajan Ashok',
+            'Contenttora': 'Contenttora digital marketing agency website built with React and GSAP',
+            'Relicus': 'Relicus brand identity website — modern UI built by Mahajan Ashok',
+            'Store Management': 'Mahajan Store Management — inventory system full stack app',
+            'Echoes of Mahajan': 'Echoes of Mahajan — content platform built with Next.js'
+        };
+        return altMap[title] || `${title} project by Mahajan Ashok freelance AI engineer`;
+    };
+
     if (loading) return null;
 
     return (
@@ -78,7 +92,7 @@ export default function Projects() {
                                      <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
                                         <Image
                                             src={project.image}
-                                            alt={project.title}
+                                            alt={getAltText(project.title)}
                                             fill
                                             className="object-cover"
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

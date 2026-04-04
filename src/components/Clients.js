@@ -56,33 +56,47 @@ export default function Clients() {
     fetchClients();
   }, []);
 
-  if (loading) return null;
+  const getAltText = (title) => {
+      const altMap = {
+        'Relicus': 'Relicus brand identity website — modern UI built by Mahajan Ashok',
+        'AI Guru Multibot': 'AI Guru Multibot — multimodal AI chatbot built with Gemini Pro Vision by Mahajan Ashok',
+        'Mitra AI Therapist': 'Mitra AI Therapist — RAG-powered mental health chatbot built with LangChain and FastAPI',
+        'PDF Toolkit': 'PDF Toolkit SaaS app — AI-powered PDF processing tool by Mahajan Ashok',
+        'Expenso': 'Expenso expense tracker — full stack fintech app by Mahajan Ashok',
+        'Contenttora': 'Contenttora digital marketing agency website built with React and GSAP',
+        'Store Management': 'Mahajan Store Management — inventory system full stack app',
+        'Echoes of Mahajan': 'Echoes of Mahajan — content platform built with Next.js'
+      };
+      return altMap[title] || `${title} project by Mahajan Ashok freelance AI engineer`;
+    };
 
-  return (
-    <section id="clients" className="py-16 md:py-24 bg-white">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-8">
-        <h2 className="section-title-minimal">Client Work</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
-          {clients.map((client, index) => (
-            <motion.div
-              key={index}
-              className="group flex flex-col"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-gray-50 mb-8 border border-black/5 group-hover:border-black/10 transition-colors">
-                {client.image ? (
-                  <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
-                    <Image
-                      src={client.image}
-                      alt={client.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
+    if (loading) return null;
+
+    return (
+      <section id="clients" className="py-16 md:py-24 bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8">
+          <h2 className="section-title-minimal">Client Work</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
+            {clients.map((client, index) => (
+              <motion.div
+                key={index}
+                className="group flex flex-col"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-gray-50 mb-8 border border-black/5 group-hover:border-black/10 transition-colors">
+                  {client.image ? (
+                    <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+                      <Image
+                        src={client.image}
+                        alt={getAltText(client.title)}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
                 ) : client.link && client.link !== '#' ? (
                   <div className="absolute inset-0 pointer-events-none transition-all duration-700 scale-[0.25] origin-top-left w-[400%] h-[400%]">
                     <iframe
