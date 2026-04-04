@@ -37,6 +37,15 @@ export const metadata = {
     title: 'Mahajan Ashok | Freelance AI Engineer & Full Stack Developer',
     description: 'Available for hire. RAG pipelines, LangChain, FastAPI, React. Hyderabad, India.',
     images: ['/og-image.png']
+  },
+  verification: {
+    google: 'k5fYCUlQxNXneZTyVg9w97dJT24IDlVRlahDXD7jsBo',
+  },
+  other: {
+    "geo.region": "IN-TG",
+    "geo.placename": "Hyderabad",
+    "geo.position": "17.3850;78.4867",
+    "ICBM": "17.3850, 78.4867"
   }
 };
 
