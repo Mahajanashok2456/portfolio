@@ -1,4 +1,10 @@
+# *
 User-agent: *
 Allow: /
 Disallow: /api/
+
+# Host
+Host: https://mahajanashok.in
+
+# Sitemaps
 Sitemap: https://mahajanashok.in/sitemap.xml
