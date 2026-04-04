@@ -52,7 +52,7 @@ export default function About() {
               Currently available for freelance projects and consulting.
             </p>
             <p className="sr-only">
-              Mahajan Ashok is a freelance AI Engineer and Full Stack Developer based in Hyderabad, India, specializing in building RAG pipelines, LangChain-powered chatbots, FastAPI backends, and full-stack SaaS applications using React and Next.js. He holds certifications in Generative AI from Oracle, Google Cloud, and Salesforce, and has hands-on experience integrating LLMs including Gemini Pro Vision, GPT-4, and open-source HuggingFace models into production applications. He is available for remote freelance projects worldwide.
+              Mahajan Ashok is a senior remote AI Engineer and Full Stack Developer serving clients in the US, UK, London, North America, and South America. Specializing in production-grade RAG pipelines, LangChain-powered AI agents, and high-performance FastAPI backends, he helps global startups build intelligent SaaS applications. Based in India but operating on global timezones, he holds certifications in Generative AI from Oracle, Google Cloud, and Salesforce. His expertise includes integrating multimodal LLMs like Gemini Pro, GPT-4o, and open-source models into scalable cloud architectures. Available for remote contract work and AI consulting worldwide.
             </p>
           </div>
         </div>

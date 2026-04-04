@@ -13,11 +13,28 @@ const outfit = Outfit({
 export const metadata = {
   metadataBase: new URL('https://mahajanashok.in'),
   title: {
-    default: 'Mahajan Ashok | Freelance AI Engineer & Full Stack Developer — Hyderabad',
-    template: '%s | Mahajan Ashok'
+    default: 'Mahajan Ashok | Remote AI Engineer & Full Stack Developer — US, UK, Global',
+    template: '%s | Mahajan Ashok — Remote AI Expert'
   },
-  description: 'Hire Mahajan Ashok — Freelance AI Engineer & Full Stack Developer from Hyderabad, India. Expert in RAG pipelines, LangChain, FastAPI, React, Next.js. Building AI-powered SaaS apps and agentic workflows. Available for remote projects.',
-  keywords: ['freelance AI engineer India', 'AI developer Hyderabad', 'RAG pipeline developer', 'LangChain developer for hire', 'FastAPI developer freelance', 'prompt engineer India', 'generative AI developer', 'agentic workflow developer', 'full stack developer Hyderabad', 'Next.js developer India', 'SaaS backend developer', 'MongoDB developer freelance', 'Mahajan Ashok', 'AI engineer portfolio', 'hire AI developer India', 'React developer freelance India', 'Python FastAPI developer', 'LLM integration developer', 'HuggingFace developer', 'PyTorch developer India'],
+  description: 'Hire Mahajan Ashok — Senior Remote AI Engineer & Full Stack Developer. Specializing in RAG pipelines, LangChain, and Agentic Workflows for startups in the US, UK, and North America. Expert in FastAPI, React, and LLM integrations. Available for global freelance projects.',
+  keywords: [
+    'remote AI engineer US', 
+    'freelance AI developer London', 
+    'AI engineer for US startups', 
+    'RAG pipeline expert remote', 
+    'LangChain consultant UK', 
+    'AI agent developer North America', 
+    'Generative AI expert Europe', 
+    'Full stack developer for global projects', 
+    'Hire AI engineer India remote', 
+    'Python AI developer US timezones', 
+    'SaaS backend developer global', 
+    'LLM integration expert worldwide', 
+    'Mahajan Ashok', 
+    'AI automation consultant US', 
+    'Custom AI solutions for North America',
+    'Remote full stack engineer London'
+  ],
   authors: [{ name: 'Mahajan Ashok', url: 'https://mahajanashok.in' }],
   creator: 'Mahajan Ashok',
   publisher: 'Mahajan Ashok',
@@ -25,25 +42,25 @@ export const metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' } },
   openGraph: {
     type: 'website',
-    locale: 'en_IN',
+    locale: 'en_US',
     url: 'https://mahajanashok.in',
-    siteName: 'Mahajan Ashok — AI Engineer Portfolio',
-    title: 'Mahajan Ashok | Freelance AI Engineer & Full Stack Developer',
-    description: 'Available for hire. Building RAG pipelines, AI chatbots, and full-stack SaaS apps. FastAPI · React · LangChain · MongoDB. Based in Hyderabad, India.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Mahajan Ashok — Freelance AI Engineer and Full Stack Developer from Hyderabad India' }]
+    siteName: 'Mahajan Ashok — Global AI Engineer Portfolio',
+    title: 'Mahajan Ashok | Remote AI Engineer & Full Stack Developer for Global Startups',
+    description: 'Expert AI Engineer available for remote hire in US, UK, and Worldwide. Building production-ready RAG pipelines, AI agents, and full-stack SaaS. FastAPI · React · LangChain · LLMs.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Mahajan Ashok — Remote AI Engineer serving US, UK, and Global Markets' }]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mahajan Ashok | Freelance AI Engineer & Full Stack Developer',
-    description: 'Available for hire. RAG pipelines, LangChain, FastAPI, React. Hyderabad, India.',
+    title: 'Mahajan Ashok | Remote AI Engineer for US & UK Startups',
+    description: 'Expert in RAG, AI Agents, and Full Stack SaaS. Serving global clients from Hyderabad, India.',
     images: ['/og-image.png']
   },
   verification: {
     google: 'k5fYCUlQxNXneZTyVg9w97dJT24IDlVRlahDXD7jsBo',
   },
   other: {
-    "geo.region": "IN-TG",
-    "geo.placename": "Hyderabad",
+    "geo.region": "GLOBAL",
+    "geo.placename": "Worldwide / Remote",
     "geo.position": "17.3850;78.4867",
     "ICBM": "17.3850, 78.4867"
   }

@@ -60,9 +60,16 @@ const SchemaMarkup = () => {
       },
       {
         "@type": "ProfessionalService",
-        "name": "Mahajan Ashok — AI & Full Stack Freelancer",
-        "areaServed": "Worldwide",
-        "description": "Freelance AI Engineer specializing in RAG pipelines, LangChain chatbots, FastAPI backends, and full-stack SaaS applications"
+        "name": "Mahajan Ashok — Global AI & Full Stack Freelancer",
+        "areaServed": [
+          "United States",
+          "United Kingdom",
+          "North America",
+          "South America",
+          "Europe",
+          "Worldwide"
+        ],
+        "description": "Remote AI Engineer & Full Stack Developer specializing in production-ready RAG pipelines, LangChain chatbots, FastAPI backends, and scalable SaaS applications for global startups."
       },
       {
         "@type": "WebSite",

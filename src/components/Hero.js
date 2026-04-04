@@ -120,7 +120,7 @@ export default function Hero() {
             <span className="w-1 h-1 bg-black/20 rounded-full"></span>
             <span>20+ Projects Shipped</span>
             <span className="w-1 h-1 bg-black/20 rounded-full"></span>
-            <span>Available for Freelance</span>
+            <span>Remote / Global Hire</span>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-6">
