@@ -29,7 +29,8 @@ export default function LoginPage() {
       if (result?.error) {
         setError('Invalid credentials');
       } else if (result?.ok) {
-        router.push('/mahajan/admin');
+        // Use window.location.href for a hard redirect to ensure session is picked up
+        window.location.href = '/mahajan/admin';
       } else {
         setError('An unexpected error occurred. Check console.');
       }
