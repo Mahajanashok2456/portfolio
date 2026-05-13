@@ -8,20 +8,36 @@ export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await signIn('credentials', {
-      redirect: false,
-      username,
-      password,
-    });
+    setIsLoading(true);
+    setError('');
 
-    if (result.error) {
-      setError('Invalid credentials');
-    } else {
-      router.push('/mahajan/admin');
+    try {
+      console.log('Attempting sign in...');
+      const result = await signIn('credentials', {
+        redirect: false,
+        username,
+        password,
+      });
+
+      console.log('Sign in result:', result);
+
+      if (result?.error) {
+        setError('Invalid credentials');
+      } else if (result?.ok) {
+        router.push('/mahajan/admin');
+      } else {
+        setError('An unexpected error occurred. Check console.');
+      }
+    } catch (err) {
+      console.error('Login error:', err);
+      setError('Connection failed. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -62,9 +78,10 @@ export default function LoginPage() {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-md text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-all uppercase tracking-widest"
+              disabled={isLoading}
+              className={`group relative w-full flex justify-center py-4 px-4 border border-transparent text-sm font-bold rounded-md text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-all uppercase tracking-widest ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-              Sign in
+              {isLoading ? 'Signing in...' : 'Sign in'}
             </button>
           </div>
         </form>
