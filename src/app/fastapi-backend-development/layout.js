@@ -1,11 +1,17 @@
 export const metadata = {
-    title: "FastAPI Backend Developer | High-Performance Python APIs",
-    description: "Scalable, async Python backends for AI applications. Expert FastAPI developer for machine learning inference and high-load systems.",
-    keywords: ["fastapi developer", "python backend developer", "async api development", "ml model serving", "high-performance python api"],
+    title: "FastAPI Backend Development | Mahajan Ashok",
+    description: "Scalable, async Python backends for AI applications. Building machine learning inference and high-load systems with FastAPI.",
+    alternates: { canonical: "https://mahajanashok.in/fastapi-backend-development" },
     openGraph: {
-        title: "FastAPI Backend Developer | Mahajan Ashok",
-        description: "Expert FastAPI developer for AI backends and high-load systems.",
-        url: "https://www.mahajanashok.in/fastapi-backend-development",
+        title: "FastAPI Backend Development | Mahajan Ashok",
+        description: "Building machine learning inference and high-load systems with FastAPI.",
+        url: "https://mahajanashok.in/fastapi-backend-development",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "FastAPI Backend Development | Mahajan Ashok",
+        description: "Building machine learning inference and high-load systems with FastAPI.",
+        images: ["/ai-guru-preview.png"],
     },
 };
 

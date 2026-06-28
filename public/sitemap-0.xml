@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://mahajanashok.in/about</loc><lastmod>2026-04-04T19:36:57.487Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mahajanashok.in/ai-chatbot-development</loc><lastmod>2026-04-04T19:36:57.488Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mahajanashok.in/contact</loc><lastmod>2026-04-04T19:36:57.488Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mahajanashok.in/experience</loc><lastmod>2026-04-04T19:36:57.488Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mahajanashok.in/fastapi-backend-development</loc><lastmod>2026-04-04T19:36:57.488Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mahajanashok.in/generative-ai-development</loc><lastmod>2026-04-04T19:36:57.488Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mahajanashok.in/hire-ai-engineer</loc><lastmod>2026-04-04T19:36:57.488Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mahajanashok.in/mahajan/admin/login</loc><lastmod>2026-04-04T19:36:57.488Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mahajanashok.in/mahajan/admin</loc><lastmod>2026-04-04T19:36:57.488Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mahajanashok.in/mahajan/review</loc><lastmod>2026-04-04T19:36:57.488Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mahajanashok.in</loc><lastmod>2026-04-04T19:36:57.488Z</lastmod><changefreq>daily</changefreq><priority>1</priority></url>
-<url><loc>https://mahajanashok.in/projects</loc><lastmod>2026-04-04T19:36:57.488Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://mahajanashok.in/rag-pipeline-development</loc><lastmod>2026-04-04T19:36:57.488Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mahajanashok.in/about</loc><lastmod>2026-06-28T19:26:09.464Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mahajanashok.in/ai-chatbot-development</loc><lastmod>2026-06-28T19:26:09.465Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mahajanashok.in/contact</loc><lastmod>2026-06-28T19:26:09.465Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mahajanashok.in/experience</loc><lastmod>2026-06-28T19:26:09.465Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mahajanashok.in/fastapi-backend-development</loc><lastmod>2026-06-28T19:26:09.465Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mahajanashok.in/generative-ai-development</loc><lastmod>2026-06-28T19:26:09.465Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mahajanashok.in/hire-ai-engineer</loc><lastmod>2026-06-28T19:26:09.465Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mahajanashok.in/mahajan/admin/login</loc><lastmod>2026-06-28T19:26:09.465Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mahajanashok.in/mahajan/admin</loc><lastmod>2026-06-28T19:26:09.465Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mahajanashok.in/mahajan/review</loc><lastmod>2026-06-28T19:26:09.465Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mahajanashok.in</loc><lastmod>2026-06-28T19:26:09.465Z</lastmod><changefreq>daily</changefreq><priority>1</priority></url>
+<url><loc>https://mahajanashok.in/projects</loc><lastmod>2026-06-28T19:26:09.465Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://mahajanashok.in/rag-pipeline-development</loc><lastmod>2026-06-28T19:26:09.465Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 <url><loc>https://mahajanashok.in/#projects</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
 <url><loc>https://mahajanashok.in/#about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 <url><loc>https://mahajanashok.in/#contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>

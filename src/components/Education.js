@@ -9,7 +9,7 @@ const fallbackEducation = [
     degree: 'B.Tech in CSE (Data Science)',
     period: '2022 – Present',
     description: 'Specializing in computer vision and NLP architectures. Active in technical coordination and core hackathons.',
-    grade: 'CGPA: 8.06 / 10'
+    grade: 'CGPA: 8.27 / 10'
   },
   {
     school: 'Sri Medhavi Jr. College',

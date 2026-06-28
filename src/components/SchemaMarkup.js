@@ -9,7 +9,7 @@ const SchemaMarkup = () => {
         "name": "Mahajan Ashok",
         "jobTitle": "Freelance AI Engineer & Full Stack Developer",
         "url": "https://mahajanashok.in",
-        "email": "mahajanashok78@gmail.com",
+        "email": "hello@mahajanashok.in",
         "telephone": "+919493510236",
         "address": {
           "@type": "PostalAddress",

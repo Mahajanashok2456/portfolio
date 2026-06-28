@@ -23,7 +23,7 @@ export default function Contact() {
     fetchConfig();
   }, []);
 
-  const email = config?.email || "mahajanashok78@gmail.com";
+  const email = config?.email || "hello@mahajanashok.in";
   const phone = config?.phone || "+91 94935 10236";
   const location = config?.location || "Hyderabad, India";
 

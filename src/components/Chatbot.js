@@ -8,15 +8,15 @@ export default function Chatbot() {
   const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
-    // Show notification after 2 seconds
+    // Show notification much later after 5 seconds instead of 2 to prioritize content load
     const showTimer = setTimeout(() => {
       setShowNotification(true);
-    }, 2000);
+    }, 5000);
 
     // Auto-hide notification after 10 seconds
     const hideTimer = setTimeout(() => {
       setShowNotification(false);
-    }, 10000);
+    }, 12000);
 
     return () => {
       clearTimeout(showTimer);
@@ -35,11 +35,11 @@ export default function Chatbot() {
     <>
       <Script 
         src="https://cdn.botpress.cloud/webchat/v3.4/inject.js" 
-        strategy="afterInteractive" 
+        strategy="lazyOnload" 
       />
       <Script 
         src="https://files.bpcontent.cloud/2025/12/03/07/20251203071355-LADL5BMJ.js" 
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
 
       <AnimatePresence>

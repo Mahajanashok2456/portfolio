@@ -1,11 +1,17 @@
 export const metadata = {
-    title: "Hire AI Engineer | Mahajan Ashok - GenAI & Full Stack",
-    description: "Looking for an expert AI Engineer? I build RAG systems, AI agents, and full-stack apps. Available for contract and freelance projects.",
-    keywords: ["hire ai engineer", "freelance ai developer", "ai engineer for hire", "full stack ai developer", "remote ai engineer"],
+    title: "Hire AI Engineer | Mahajan Ashok",
+    description: "Hire Mahajan Ashok — AI Engineer for RAG systems, AI agents, and full-stack apps. Available for remote contract and freelance projects.",
+    alternates: { canonical: "https://mahajanashok.in/hire-ai-engineer" },
     openGraph: {
         title: "Hire AI Engineer | Mahajan Ashok",
-        description: "Expert AI Engineer available for RAG, GenAI, and full-stack projects.",
-        url: "https://www.mahajanashok.in/hire-ai-engineer",
+        description: "AI Engineer available for RAG, GenAI, and full-stack projects.",
+        url: "https://mahajanashok.in/hire-ai-engineer",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Hire AI Engineer | Mahajan Ashok",
+        description: "AI Engineer available for RAG, GenAI, and full-stack projects.",
+        images: ["/ai-guru-preview.png"],
     },
 };
 

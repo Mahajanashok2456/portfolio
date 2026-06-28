@@ -33,7 +33,7 @@ export default function RAGPipelineDevelopment() {
                             <span className="text-black/10">AI with RAG Pipelines</span>
                         </h1>
                         <p className="text-lg md:text-2xl text-black/60 max-w-2xl leading-relaxed font-medium mb-16">
-                            Enhance your LLM&apos;s accuracy with custom Retrieval-Augmented Generation pipelines. Expert in Pinecone, ChromaDB, and LangChain.
+                            Enhance your LLM&apos;s accuracy with custom Retrieval-Augmented Generation pipelines. Building with Pinecone, ChromaDB, and LangChain.
                         </p>
                         <a href="/#contact" className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white font-bold uppercase tracking-widest hover:bg-black/80 transition-colors text-sm">
                             Get a RAG Audit <FaArrowRight />

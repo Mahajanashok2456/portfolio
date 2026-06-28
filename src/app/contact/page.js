@@ -4,8 +4,24 @@ import Footer from '@/components/Footer';
 import Chatbot from '@/components/Chatbot';
 
 export const metadata = {
-    title: "Contact | Mahajan Ashok - Hire AI Engineer & Full Stack Developer",
-    description: "Get in touch with Mahajan Ashok for AI development, Full Stack web apps, or freelance consulting. Available for contract and freelance projects worldwide.",
+    title: 'Contact | Mahajan Ashok',
+    description: 'Contact Mahajan Ashok for freelance web development projects in India, remote AI engineering contracts, or full-time fresher opportunities.',
+    alternates: { canonical: 'https://mahajanashok.in/contact' },
+    openGraph: {
+        type: 'website',
+        locale: 'en_US',
+        url: 'https://mahajanashok.in/contact',
+        siteName: 'Mahajan Ashok Portfolio',
+        title: 'Contact | Mahajan Ashok',
+        description: 'Contact Mahajan Ashok for freelance projects or full-time opportunities.',
+        images: [{ url: '/ai-guru-preview.png', width: 1200, height: 630, alt: 'Mahajan Ashok — Contact' }]
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Contact | Mahajan Ashok',
+        description: 'Contact Mahajan Ashok for projects or opportunities.',
+        images: ['/ai-guru-preview.png']
+    },
 };
 
 export default function ContactPage() {

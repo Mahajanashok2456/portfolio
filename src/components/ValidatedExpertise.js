@@ -74,7 +74,7 @@ export default function ValidatedExpertise() {
                             <div className="flex items-center gap-4 mb-6">
                                 <Image
                                     src={item.image}
-                                    alt={`${item.title} logo — used by Mahajan Ashok freelance AI engineer`}
+                                    alt={`${item.title} logo`}
                                     width={32}
                                     height={32}
                                     className="w-8 h-8"

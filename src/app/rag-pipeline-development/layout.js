@@ -1,11 +1,17 @@
 export const metadata = {
-    title: "RAG Pipeline Development Services | LangChain & Vector DB Expert",
-    description: "Enhance your LLM's accuracy with custom Retrieval-Augmented Generation (RAG) pipelines. Expert in Pinecone, ChromaDB, and LangChain.",
-    keywords: ["rag pipeline developer", "langchain development", "vector database expert", "retrieval augmented generation", "reduce llm hallucinations"],
+    title: "RAG Pipeline Development | Mahajan Ashok",
+    description: "Enhance your LLM&apos;s accuracy with custom Retrieval-Augmented Generation (RAG) pipelines. Building with Pinecone, ChromaDB, and LangChain.",
+    alternates: { canonical: "https://mahajanashok.in/rag-pipeline-development" },
     openGraph: {
-        title: "RAG Pipeline Development Services | Mahajan Ashok",
-        description: "Enhance your LLM's accuracy with custom RAG pipelines.",
-        url: "https://www.mahajanashok.in/rag-pipeline-development",
+        title: "RAG Pipeline Development | Mahajan Ashok",
+        description: "Enhance your LLM&apos;s accuracy with custom RAG pipelines.",
+        url: "https://mahajanashok.in/rag-pipeline-development",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "RAG Pipeline Development | Mahajan Ashok",
+        description: "Enhance your LLM&apos;s accuracy with custom RAG pipelines.",
+        images: ["/contenttora-preview.png"],
     },
 };
 

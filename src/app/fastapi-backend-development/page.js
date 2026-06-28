@@ -26,10 +26,10 @@ export default function FastAPIBackendDevelopment() {
                             <span className="text-black/10">FastAPI Backend Services</span>
                         </h1>
                         <p className="text-lg md:text-2xl text-black/60 max-w-2xl leading-relaxed font-medium mb-16">
-                            Scalable, async Python backends for AI applications. Expert FastAPI developer for machine learning inference and high-load systems.
+                            Scalable, async Python backends for AI applications. Building machine learning inference and high-load systems with FastAPI.
                         </p>
                         <a href="/#contact" className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white font-bold uppercase tracking-widest hover:bg-black/80 transition-colors text-sm">
-                            Hire Backend Expert <FaArrowRight />
+                            Hire Me <FaArrowRight />
                         </a>
                     </motion.div>
                 </div>

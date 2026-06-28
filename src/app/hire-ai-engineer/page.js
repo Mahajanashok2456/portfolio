@@ -35,11 +35,11 @@ export default function HireAIEngineer() {
                         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                             <p className="text-xs font-bold text-black/40 uppercase tracking-[0.5em] mb-6">Hire Me</p>
                             <h1 className="text-4xl md:text-8xl font-black tracking-tighter uppercase leading-none mb-10">
-                                Partner with a<br />
-                                <span className="text-black/10">World-Class AI Engineer</span>
+                                Work with an<br />
+                                <span className="text-black/10">AI Engineer</span>
                             </h1>
                             <p className="text-lg md:text-2xl text-black/60 max-w-xl leading-relaxed font-medium mb-16">
-                                Looking for an expert AI Engineer? I build RAG systems, AI agents, and full-stack apps. Available for contract and freelance projects worldwide.
+                                I build RAG systems, AI agents, and full-stack apps. Available for contract and freelance projects worldwide.
                             </p>
                             <div className="flex flex-wrap gap-6">
                                 <a href="/#contact" className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white font-bold uppercase tracking-widest hover:bg-black/80 transition-colors text-sm">

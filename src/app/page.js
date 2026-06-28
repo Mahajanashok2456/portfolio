@@ -1,54 +1,26 @@
-'use client';
+import HomeClient from './page.client';
 
-import dynamic from 'next/dynamic';
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-
-// Dynamically import components below the fold
-const Clients = dynamic(() => import('@/components/Clients'), {
-  loading: () => <div className="h-96 animate-pulse bg-gray-50" />
-});
-const Projects = dynamic(() => import('@/components/Projects'), {
-  loading: () => <div className="h-96 animate-pulse bg-gray-50" />
-});
-const Testimonials = dynamic(() => import('@/components/Testimonials'), {
-  loading: () => <div className="h-96 animate-pulse bg-gray-50" />
-});
-const ValidatedExpertise = dynamic(() => import('@/components/ValidatedExpertise'), {
-  loading: () => <div className="h-96 animate-pulse bg-gray-50" />
-});
-const Experience = dynamic(() => import('@/components/Experience'), {
-  loading: () => <div className="h-96 animate-pulse bg-gray-50" />
-});
-const About = dynamic(() => import('@/components/About'), {
-  loading: () => <div className="h-96 animate-pulse bg-gray-50" />
-});
-const FAQ = dynamic(() => import('@/components/FAQ'), {
-  loading: () => <div className="h-96 animate-pulse bg-gray-50" />
-});
-const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <div className="h-64 animate-pulse bg-gray-50" />
-});
-const Chatbot = dynamic(() => import('@/components/Chatbot'), { ssr: false });
+export const metadata = {
+  title: 'Full Stack Developer & AI Engineer | Hyderabad',
+  description: 'Mahajan Ashok — AI Product Engineer & Full Stack Developer in Hyderabad. Freelance web/app development for Indian businesses, and remote AI/GenAI engineering for global clients.',
+  alternates: { canonical: 'https://mahajanashok.in' },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://mahajanashok.in',
+    siteName: 'Mahajan Ashok Portfolio',
+    title: 'Full Stack Developer & AI Engineer | Hyderabad',
+    description: 'Freelance web/app development in Hyderabad and across India, plus remote AI/GenAI engineering for global clients.',
+    images: [{ url: '/ai-guru-preview.png', width: 1200, height: 630, alt: 'Mahajan Ashok — AI Engineer & Full Stack Developer' }]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Full Stack Developer & AI Engineer | Hyderabad',
+    description: 'Freelance web/app development in India, remote AI engineering worldwide.',
+    images: ['/ai-guru-preview.png']
+  },
+};
 
 export default function Home() {
-  return (
-    <main className="min-h-screen selection:bg-black selection:text-white bg-white overflow-x-hidden">
-      <Navbar />
-
-      <div className="relative z-10">
-        <Hero />
-        <Clients />
-        <Projects />
-        <Testimonials />
-        <ValidatedExpertise />
-        <Experience />
-        <About />
-        <FAQ />
-      </div>
-
-      <Footer />
-      <Chatbot />
-    </main>
-  );
+  return <HomeClient />;
 }

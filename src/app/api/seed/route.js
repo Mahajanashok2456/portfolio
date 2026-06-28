@@ -196,7 +196,7 @@ export async function GET() {
         degree: 'B.Tech in CSE (Data Science)',
         period: '2022 – Present',
         description: 'Specializing in computer vision and NLP architectures. Active in technical coordination and core hackathons.',
-        grade: 'CGPA: 8.06 / 10'
+        grade: 'CGPA: 8.27 / 10'
       },
       {
         school: 'Sri Medhavi Jr. College',
@@ -239,7 +239,7 @@ export async function GET() {
       {
         section: 'contact',
         content: {
-          email: "mahajanashok78@gmail.com",
+          email: "hello@mahajanashok.in",
           phone: "+91 94935 10236",
           location: "Hyderabad, India",
           linkedin: "https://www.linkedin.com/in/mahajanashok78/",
